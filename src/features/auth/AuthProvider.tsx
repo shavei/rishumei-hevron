@@ -103,6 +103,13 @@ export function useAuth(): AuthState {
 }
 
 export function useStudentProfile(): StudentSession | null {
-  const raw = localStorage.getItem('rh.student.profile');
-  return raw ? (JSON.parse(raw) as StudentSession) : null;
+  const { studentToken } = useAuth();
+  // Derive from the token's presence so this re-renders on login/logout.
+  if (!studentToken) return null;
+  try {
+    const raw = localStorage.getItem('rh.student.profile');
+    return raw ? (JSON.parse(raw) as StudentSession) : null;
+  } catch {
+    return null;
+  }
 }
