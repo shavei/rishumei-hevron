@@ -1,0 +1,46 @@
+{
+  "app": {
+    "name": "רישומי חברון",
+    "loading": "טוען…",
+    "error_generic": "אירעה שגיאה. נסה שוב.",
+    "offline": "אין חיבור — נסה שוב",
+    "save": "שמור",
+    "cancel": "ביטול",
+    "continue": "המשך",
+    "edit": "עריכה",
+    "back": "חזרה"
+  },
+  "auth": {
+    "student_id_label": "מספר תעודת זהות",
+    "student_id_placeholder": "9 ספרות",
+    "student_not_found": "לא נמצא תלמיד עם מספר זה — פנה למשרד",
+    "greeting": "שלום, {{name}}",
+    "admin_pin_label": "קוד מנהל",
+    "admin_wrong_pin": "קוד שגוי",
+    "admin_locked": "המערכת ננעלה זמנית עקב ריבוי נסיונות. נסה שוב בעוד מספר דקות.",
+    "logout": "התנתקות"
+  },
+  "status": {
+    "sent": "טרם נצפה",
+    "seen": "ראה ולא ענה",
+    "responded": "ענה",
+    "closed": "סגור"
+  },
+  "presence": {
+    "present": "נוכח",
+    "absent": "לא נוכח",
+    "undecided": "מתלבט"
+  },
+  "yes_no": {
+    "yes": "כן",
+    "no": "לא"
+  },
+  "registration": {
+    "edit_until": "ניתן לערוך עד {{date}}",
+    "closes_at": "נסגר ב-{{date}}",
+    "closed_message": "הרישום סגור",
+    "response_saved": "תשובתך נקלטה ב-{{date}}",
+    "edited_by_admin": "נערך על ידי המנהל ב-{{date}}",
+    "preview_no_save": "תצוגה מקדימה — אין שמירה"
+  }
+}

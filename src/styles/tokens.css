@@ -1,0 +1,45 @@
+/* Rishumei Hevron — design tokens (spec §8). Light is default; dark overrides. */
+:root {
+  --rh-bg: #f6f7f9;
+  --rh-bg-2: #eef0f3;
+  --rh-surface: #ffffff;
+  --rh-border: #e2e5ea;
+  --rh-text: #14181f;
+  --rh-text-muted: #4b5563;
+  --rh-text-subtle: #8a93a2;
+  --rh-accent: #2563eb;
+  --rh-accent-fg: #ffffff;
+  --rh-success: #16a34a;
+  --rh-warning: #d97706;
+  --rh-danger: #dc2626;
+  --rh-info: #0891b2;
+
+  --rh-radius-sm: 8px;
+  --rh-radius-md: 14px;
+  --rh-radius-lg: 20px;
+  --rh-radius-xl: 28px;
+
+  --rh-shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --rh-shadow-md: 0 4px 14px rgba(16, 24, 40, 0.08);
+  --rh-shadow-lg: 0 12px 32px rgba(16, 24, 40, 0.12);
+}
+
+:root[data-theme='dark'] {
+  --rh-bg: #0b0f17;
+  --rh-bg-2: #111827;
+  --rh-surface: #161d2b;
+  --rh-border: #263041;
+  --rh-text: #e7ebf2;
+  --rh-text-muted: #9aa6b8;
+  --rh-text-subtle: #6b7688;
+  --rh-accent: #3b82f6;
+  --rh-accent-fg: #0b0f17;
+  --rh-success: #22c55e;
+  --rh-warning: #f59e0b;
+  --rh-danger: #ef4444;
+  --rh-info: #22d3ee;
+
+  --rh-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --rh-shadow-md: 0 4px 14px rgba(0, 0, 0, 0.5);
+  --rh-shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+}

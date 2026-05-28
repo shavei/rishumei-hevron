@@ -1,0 +1,25 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Heebo', 'Assistant', system-ui, sans-serif;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg text-text antialiased;
+    margin: 0;
+    min-height: 100dvh;
+  }
+  /* tabular figures for tables/numbers (Israeli convention: Latin digits) */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  :focus-visible {
+    outline: 2px solid var(--rh-accent);
+    outline-offset: 2px;
+  }
+}
