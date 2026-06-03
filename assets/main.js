@@ -1,5 +1,5 @@
 /* =================================================================
-   בשבילנו — site behaviours
+   Bishvileinu — site behaviours
    nav · theme · mobile drawer · scroll-reveal · counters · lightbox
    FAQ accordion · back-to-top · scroll progress · contact form
    ================================================================= */
@@ -172,7 +172,7 @@
         field.classList.toggle("invalid", !ok);
         if (!ok) valid = false;
       });
-      if (!valid) { showToast("נא למלא את השדות המסומנים"); return; }
+      if (!valid) { showToast("Please fill in the marked fields"); return; }
 
       // -------------------------------------------------------------
       // DEMO ONLY: no real submission yet.
@@ -180,12 +180,12 @@
       // endpoint / form service here, then show the toast on success.
       // -------------------------------------------------------------
       var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "שולח…"; }
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Sending…"; }
       setTimeout(function () {
         form.reset();
         form.querySelectorAll(".field.invalid").forEach(function (f) { f.classList.remove("invalid"); });
         if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; }
-        showToast("תודה! פנייתכם נקלטה — נחזור אליכם בהקדם.");
+        showToast("Thank you! Your message has been received — we'll get back to you soon.");
       }, 700);
     });
 

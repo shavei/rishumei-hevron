@@ -1,52 +1,54 @@
-# בשבילנו — אתר העמותה · *זכרון בונה חיים*
+# Bishvileinu — Nonprofit Website · *Memory Builds Life*
 
-אתר תדמית רב-עמודים לעמותת **בשבילנו**, המחברת בין מיזמי ההנצחה של נופלי מלחמת התקומה
-בישראל לבין הקהילות היהודיות בעולם. העיצוב נאמן למצגת המקורית (פלטת קרם/ירוק־צמיחה/זהב־זריחה,
-גופני Heebo + Assistant, מוטיב "שמש עולה מעל נבט"), ובנוי כאתר אמיתי עם יכולות עיצוב 2026.
+A multi-page brochure website for the **Bishvileinu** nonprofit, which connects the memorial
+initiatives for the fallen of Israel's War of Revival with Jewish communities around the world.
+The design stays true to the original presentation (a cream / growth-green / sunrise-gold palette,
+Heebo + Assistant typefaces, a "sun rising over a sprout" motif), and is built as a real website
+with 2026-grade design capabilities.
 
-> אתר סטטי (HTML/CSS/JS) ללא שלב בנייה — נפתח ומתארח בכל מקום (GitHub Pages, Netlify, Vercel, כל שרת סטטי).
+> A static site (HTML/CSS/JS) with no build step — it opens and hosts anywhere (GitHub Pages, Netlify, Vercel, any static server).
 
-## מבנה
+## Structure
 
 ```
-index.html      בית — דף נחיתה
-about.html      מי אנחנו — רקע, צמיחה, שלושת הצדדים, המשמעות הכפולה
-how.html        איך זה עובד — ארבעה שלבים, מה אנחנו עושים, סיפור ההמשכיות, תוצרים
-join.html       להצטרף — למי מיועד, מודל השותפות (3 דרגות), חזון
-contact.html    צור קשר — טופס פנייה (הדגמה), פרטי קשר, שאלות נפוצות
+index.html      Home — landing page
+about.html      About Us — background, growth, the three sides, the double meaning
+how.html        How It Works — four steps, what we do, the continuity story, outcomes
+join.html       Join — who it's for, the partnership model (3 tiers), the vision
+contact.html    Contact — contact form (demo), contact details, FAQ
 assets/
-  styles.css    כל אסימוני העיצוב והרכיבים (משותף לכל העמודים)
-  main.js        ניווט, מצב כהה, תפריט מובייל, אנימציות גלילה, מוני־מספרים,
-                 לייטבוקס, אקורדיון, טופס, חזרה למעלה, פס התקדמות
-  images/        ששת התצלומים
-  sun.svg        אייקון השמש (favicon)
+  styles.css    All design tokens and components (shared across all pages)
+  main.js        navigation, dark mode, mobile menu, scroll animations, number counters,
+                 lightbox, accordion, form, back-to-top, progress bar
+  images/        the six photographs
+  sun.svg        the sun icon (favicon)
 ```
 
-## יכולות האתר
+## Site features
 
-ניווט דביק עם טשטוש בגלילה · הדגשת עמוד פעיל · תפריט מובייל מלא · **מצב כהה** (נשמר) ·
-פס התקדמות גלילה · אנימציות חשיפה מדורגות · מוני מספרים מונפשים · **לייטבוקס** לתמונות ·
-**אקורדיון שאלות נפוצות** · כפתור חזרה למעלה · גלילה חלקה · טופס יצירת קשר עם ולידציה והודעת
-הצלחה · HTML סמנטי + תגיות מטא/Open Graph + favicon · תמיכה ב־`prefers-reduced-motion`.
+Sticky navigation with blur-on-scroll · active-page highlighting · full mobile menu · **dark mode** (persisted) ·
+scroll progress bar · staggered reveal animations · animated number counters · **lightbox** for images ·
+**FAQ accordion** · back-to-top button · smooth scrolling · contact form with validation and a success
+message · semantic HTML + meta/Open Graph tags + favicon · support for `prefers-reduced-motion`.
 
-## הרצה מקומית
+## Running locally
 
 ```bash
 python3 -m http.server 8000
-# ואז פתחו בדפדפן: http://localhost:8000
+# then open in your browser: http://localhost:8000
 ```
 
-## מה צריך להשלים (ממלאי מקום מסומנים באתר בתגית "לעדכון")
+## What still needs completing (placeholders are marked on the site with a "To update" tag)
 
-- **פרטי קשר אמיתיים** — אימייל / טלפון / כתובת (כעת `info@bishvileinu.org.il` כמציין מקום).
-- **קישורי רשתות חברתיות** בפוטר (כרגע `#`).
-- **תצלומים** — התמונות הנוכחיות הן ממלאי מקום שנוצרו ב-AI; החליפו בתמונות אמיתיות.
-- **טופס יצירת הקשר** — כרגע הדגמה בצד הלקוח בלבד (מציג הודעת הצלחה, ללא שליחה).
-  לחיבור שרת/שירות (Formspree / Web3Forms וכו') יש הערת `DEMO ONLY` ב-`assets/main.js`
-  בדיוק במקום שבו יש לשלוח את `FormData`.
+- **Real contact details** — email / phone / address (currently `info@bishvileinu.org.il` as a placeholder).
+- **Social media links** in the footer (currently `#`).
+- **Photographs** — the current images are AI-generated placeholders; replace them with real photos.
+- **The contact form** — currently a client-side demo only (shows a success message, no submission).
+  To connect a backend/service (Formspree / Web3Forms, etc.) there is a `DEMO ONLY` note in `assets/main.js`
+  exactly where the `FormData` should be sent.
 
-## עיצוב
+## Design
 
-אסימוני הצבע והגופנים מוגדרים ב-`:root` שבתחילת `assets/styles.css`; מצב כהה תחת
-`html[data-theme="dark"]`. הצבעים המרכזיים: ירוק־צמיחה `#178A5B`, זהב־זריחה `#C0841C`,
-נייבי `#22324E`, קרם `#FBF7EF`.
+The color and font tokens are defined in `:root` at the top of `assets/styles.css`; dark mode is under
+`html[data-theme="dark"]`. The core colors: growth-green `#178A5B`, sunrise-gold `#C0841C`,
+navy `#22324E`, cream `#FBF7EF`.
