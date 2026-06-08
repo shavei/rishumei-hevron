@@ -1,204 +1,260 @@
-/* =================================================================
-   Bishvileinu — site behaviours
-   nav · theme · mobile drawer · scroll-reveal · counters · lightbox
-   FAQ accordion · back-to-top · scroll progress · contact form
-   ================================================================= */
-(function () {
-  "use strict";
+/* ================================================================
+   בשבילנו — main.js
+   nav · drawer · scroll-progress · reveal · counters · kinetic
+   tilt · parallax-fallback · FAQ · form (mailto/WA) · back-to-top
+   ================================================================ */
 
-  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const TOUCH   = matchMedia('(hover: none)').matches;
 
-  /* ---------- THEME (apply early-saved theme is handled inline in <head>) ---------- */
-  var themeToggle = document.getElementById("themeToggle");
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      var root = document.documentElement;
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("bishvili-theme", next); } catch (e) {}
-    });
+/* ── Contact refs (not exposed in markup) ── */
+const _c = (function(){
+  const a = ['n','e','r','y','a','@','b','e','t','a','r','.','o','r','g','.','i','l'].join('');
+  const w = '972506000695';
+  return { email: a, wa: 'https://wa.me/' + w };
+})();
+
+/* ── Scroll Progress (JS fallback only) ── */
+(function(){
+  const bar = document.querySelector('.scroll-progress');
+  if (!bar) return;
+  if (CSS.supports('animation-timeline','scroll()')) return;
+  function upd(){
+    const s = document.documentElement;
+    bar.style.transform = 'scaleX('+(s.scrollTop/(s.scrollHeight-s.clientHeight)||0)+')';
   }
+  addEventListener('scroll', upd, {passive:true});
+})();
 
-  /* ---------- NAV: scrolled state + scroll progress ---------- */
-  var nav = document.getElementById("nav");
-  var progress = document.getElementById("scrollProgress");
-  function onScroll() {
-    var y = window.scrollY || document.documentElement.scrollTop;
-    if (nav) nav.classList.toggle("scrolled", y > 8);
-    if (progress) {
-      var h = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
-    }
-    var toTop = document.getElementById("toTop");
-    if (toTop) toTop.classList.toggle("show", y > 600);
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
+/* ── Nav: sticky glass + active page ── */
+(function(){
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  const page = location.pathname.replace(/\/$/, '').split('/').pop() || 'index.html';
+  nav.querySelectorAll('.nav-links a, .nav-drawer a').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const target = href.replace(/\.html$/, '').replace(/^\//, '') || 'index';
+    const current = page.replace(/\.html$/, '') || 'index';
+    if (target === current || (target === '' && current === 'index')) a.classList.add('active');
+  });
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 20);
+  addEventListener('scroll', onScroll, {passive:true});
   onScroll();
+})();
 
-  /* ---------- MOBILE DRAWER ---------- */
-  var hamburger = document.getElementById("hamburger");
-  var drawer = document.getElementById("drawer");
-  function setMenu(open) {
-    if (!drawer || !hamburger || !nav) return;
-    drawer.classList.toggle("open", open);
-    nav.classList.toggle("menu-open", open);
-    hamburger.setAttribute("aria-expanded", String(open));
-    drawer.setAttribute("aria-hidden", String(!open));
-    document.body.style.overflow = open ? "hidden" : "";
+/* ── Mobile Drawer ── */
+(function(){
+  const burger = document.querySelector('.nav-burger');
+  const drawer = document.querySelector('.nav-drawer');
+  if (!burger || !drawer) return;
+  function toggle(open){
+    burger.classList.toggle('open', open);
+    drawer.classList.toggle('open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   }
-  if (hamburger) {
-    hamburger.addEventListener("click", function () {
-      setMenu(!drawer.classList.contains("open"));
-    });
-    drawer.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () { setMenu(false); });
-    });
-  }
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") setMenu(false);
+  burger.addEventListener('click', () => toggle(!drawer.classList.contains('open')));
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') toggle(false); });
+})();
+
+/* ── Scroll Reveal (IO fallback) ── */
+(function(){
+  if (CSS.supports('animation-timeline','view()')) return;
+  const els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold: .12});
+  els.forEach(el => io.observe(el));
+})();
+
+/* ── Kinetic text split (word spans + stagger) ── */
+(function(){
+  const els = document.querySelectorAll('.kinetic');
+  if (!els.length) return;
+  els.forEach(el => {
+    const html = el.innerHTML;
+    const parts = html.split(/(<[^>]+>|\s+)/);
+    let i = 0;
+    el.innerHTML = parts.map(p => {
+      if (/^</.test(p)) return p;
+      if (/^\s+$/.test(p)) return p;
+      const delay = REDUCED ? 0 : (i++ * 48);
+      return `<span class="word" style="--i:${i};transition-delay:${delay}ms;animation-delay:${delay}ms">${p}</span>`;
+    }).join('');
   });
-
-  /* ---------- BACK TO TOP ---------- */
-  var toTop = document.getElementById("toTop");
-  if (toTop) {
-    toTop.addEventListener("click", function () {
-      window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
-    });
-  }
-
-  /* ---------- SCROLL REVEAL ---------- */
-  var revealEls = document.querySelectorAll(".reveal");
-  if (revealEls.length) {
-    if (prefersReduced || !("IntersectionObserver" in window)) {
-      revealEls.forEach(function (el) { el.classList.add("in"); });
-    } else {
-      var ro = new IntersectionObserver(function (entries) {
-        entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add("in"); ro.unobserve(en.target); }
+  if (CSS.supports('animation-timeline','view()')) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('.word').forEach((w,i) => {
+          if (REDUCED) { w.classList.add('in'); return; }
+          setTimeout(() => w.classList.add('in'), i * 48);
         });
-      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
-      revealEls.forEach(function (el) { ro.observe(el); });
-    }
-  }
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold: .1});
+  els.forEach(el => io.observe(el));
+})();
 
-  /* ---------- ANIMATED COUNTERS ---------- */
-  function animateCount(el) {
-    var target = parseFloat(el.getAttribute("data-target"));
-    var suffix = el.getAttribute("data-suffix") || "";
-    var dur = 1400, start = null;
-    if (prefersReduced) { el.textContent = format(target) + ""; appendSuffix(el, suffix); return; }
-    function step(ts) {
-      if (start === null) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = format(Math.round(target * eased));
-      if (p < 1) requestAnimationFrame(step); else { el.textContent = format(target); appendSuffix(el, suffix); }
+/* ── Count-up ── */
+(function(){
+  const els = document.querySelectorAll('.count');
+  if (!els.length) return;
+  function animateCount(el){
+    const target = +el.dataset.target;
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    if (REDUCED) { el.textContent = prefix + target.toLocaleString('he-IL') + suffix; return; }
+    const dur = 1800, start = performance.now();
+    function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+    function frame(now){
+      const p = Math.min((now-start)/dur,1);
+      el.textContent = prefix + Math.round(ease(p)*target).toLocaleString('he-IL') + suffix;
+      if (p < 1) requestAnimationFrame(frame);
     }
-    requestAnimationFrame(step);
+    requestAnimationFrame(frame);
   }
-  function format(n) { return n.toLocaleString("en-US"); }
-  function appendSuffix(el, suffix) {
-    if (suffix) { var s = document.createElement("span"); s.className = "u"; s.textContent = suffix; el.appendChild(s); }
-  }
-  var counters = document.querySelectorAll(".count");
-  if (counters.length && "IntersectionObserver" in window) {
-    var co = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { animateCount(en.target); co.unobserve(en.target); }
-      });
-    }, { threshold: 0.5 });
-    counters.forEach(function (el) { co.observe(el); });
-  } else {
-    counters.forEach(function (el) { animateCount(el); });
-  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { animateCount(e.target); io.unobserve(e.target); } });
+  }, {threshold:.5});
+  els.forEach(el => io.observe(el));
+})();
 
-  /* ---------- FAQ ACCORDION ---------- */
-  document.querySelectorAll(".faq-q").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var item = btn.closest(".faq-item");
-      var ans = item.querySelector(".faq-a");
-      var open = item.classList.toggle("open");
-      btn.setAttribute("aria-expanded", String(open));
-      ans.style.maxHeight = open ? ans.scrollHeight + "px" : "0px";
+/* ── 3D Tilt ── */
+(function(){
+  if (REDUCED || TOUCH) return;
+  document.querySelectorAll('[data-tilt]').forEach(card => {
+    let active = false;
+    card.addEventListener('pointerenter', () => { active = true; card.style.willChange = 'transform'; });
+    card.addEventListener('pointermove', e => {
+      if (!active) return;
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - .5;
+      const y = (e.clientY - r.top)  / r.height - .5;
+      card.style.transform = `perspective(800px) rotateX(${(-y*6).toFixed(2)}deg) rotateY(${(x*6).toFixed(2)}deg)`;
+    });
+    card.addEventListener('pointerleave', () => {
+      active = false;
+      card.style.transform = '';
+      card.style.willChange = '';
     });
   });
+})();
 
-  /* ---------- LIGHTBOX ---------- */
-  var lightbox = document.getElementById("lightbox");
-  if (lightbox) {
-    var lbImg = lightbox.querySelector("img");
-    var lbClose = lightbox.querySelector(".lb-close");
-    function openLb(src, alt) {
-      lbImg.src = src; lbImg.alt = alt || ""; lightbox.classList.add("open");
-      document.body.style.overflow = "hidden";
-    }
-    function closeLb() { lightbox.classList.remove("open"); document.body.style.overflow = ""; lbImg.src = ""; }
-    document.querySelectorAll(".zoomable img, img.zoomable").forEach(function (img) {
-      img.style.cursor = "zoom-in";
-      img.addEventListener("click", function () { openLb(img.currentSrc || img.src, img.alt); });
+/* ── Parallax fallback (for browsers without scroll-driven CSS) ── */
+(function(){
+  if (CSS.supports('animation-timeline','view()') || REDUCED) return;
+  const items = Array.from(document.querySelectorAll('.photoband img')).slice(0,6);
+  if (!items.length) return;
+  function update(){
+    items.forEach(img => {
+      const r = img.closest('.photoband').getBoundingClientRect();
+      const vh = window.innerHeight;
+      const pct = (r.top + r.height/2) / (vh + r.height);
+      const shift = (pct - .5) * 12;
+      img.style.transform = `scale(1.12) translateY(${shift}%)`;
     });
-    lbClose.addEventListener("click", closeLb);
-    lightbox.addEventListener("click", function (e) { if (e.target === lightbox) closeLb(); });
-    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeLb(); });
+  }
+  addEventListener('scroll', update, {passive:true});
+  update();
+})();
+
+/* ── FAQ Accordion ── */
+(function(){
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+})();
+
+/* ── Back to top ── */
+(function(){
+  const btn = document.querySelector('.to-top');
+  if (!btn) return;
+  btn.addEventListener('click', () => window.scrollTo({top:0, behavior: REDUCED ? 'auto' : 'smooth'}));
+  addEventListener('scroll', () => btn.classList.toggle('show', scrollY > 600), {passive:true});
+})();
+
+/* ── Toast ── */
+function showToast(msg){
+  let t = document.querySelector('.toast');
+  if (!t) { t = document.createElement('div'); t.className = 'toast'; document.body.appendChild(t); }
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+/* ── Quick-route chips (contact page) ── */
+(function(){
+  const chips = document.querySelectorAll('.chip-btn[data-subject]');
+  const subjectField = document.getElementById('contact-subject');
+  if (!chips.length || !subjectField) return;
+  chips.forEach(c => {
+    c.addEventListener('click', () => {
+      chips.forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      subjectField.value = c.dataset.subject;
+    });
+  });
+})();
+
+/* ── Contact form → mailto composer ── */
+(function(){
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+  const sendBtn = document.getElementById('contact-send');
+  const waBtn   = document.getElementById('contact-wa');
+
+  if (waBtn) {
+    waBtn.addEventListener('click', () => {
+      const name    = (form.querySelector('#cf-name')?.value    || '').trim();
+      const subject = (form.querySelector('#cf-subject')?.value || '').trim();
+      const msg     = (form.querySelector('#cf-msg')?.value     || '').trim();
+      const text = encodeURIComponent(`שלום, אני ${name}. ${subject ? 'נושא: '+subject+'. ' : ''}${msg}`);
+      window.open(_c.wa + '?text=' + text, '_blank', 'noopener');
+    });
   }
 
-  /* ---------- TOAST ---------- */
-  function showToast(msg) {
-    var toast = document.getElementById("toast");
-    if (!toast) return;
-    toast.querySelector(".msg").textContent = msg;
-    toast.classList.add("show");
-    clearTimeout(toast._t);
-    toast._t = setTimeout(function () { toast.classList.remove("show"); }, 4200);
-  }
-
-  /* ---------- CONTACT FORM (client-side demo) ---------- */
-  var form = document.getElementById("contactForm");
-  if (form) {
-    form.addEventListener("submit", function (e) {
+  if (sendBtn) {
+    form.addEventListener('submit', e => {
       e.preventDefault();
-
-      // honeypot — silently drop bots
-      var hp = form.querySelector(".hp input");
-      if (hp && hp.value) return;
-
-      var valid = true;
-      form.querySelectorAll("[data-required]").forEach(function (input) {
-        var field = input.closest(".field");
-        var ok = input.value.trim() !== "";
-        if (ok && input.type === "email") {
-          ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-        }
-        field.classList.toggle("invalid", !ok);
-        if (!ok) valid = false;
-      });
-      if (!valid) { showToast("Please fill in the marked fields"); return; }
-
-      // -------------------------------------------------------------
-      // DEMO ONLY: no real submission yet.
-      // To wire a backend later, POST `new FormData(form)` to your
-      // endpoint / form service here, then show the toast on success.
-      // -------------------------------------------------------------
-      var btn = form.querySelector('button[type="submit"]');
-      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = "Sending…"; }
-      setTimeout(function () {
-        form.reset();
-        form.querySelectorAll(".field.invalid").forEach(function (f) { f.classList.remove("invalid"); });
-        if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label; }
-        showToast("Thank you! Your message has been received — we'll get back to you soon.");
-      }, 700);
-    });
-
-    // clear error state as the user types
-    form.querySelectorAll("[data-required]").forEach(function (input) {
-      input.addEventListener("input", function () {
-        input.closest(".field").classList.remove("invalid");
-      });
+      if (form.querySelector('.hp')?.value) return;
+      const name    = form.querySelector('#cf-name')?.value?.trim()    || '';
+      const email   = form.querySelector('#cf-email')?.value?.trim()   || '';
+      const subject = form.querySelector('#cf-subject')?.value?.trim() || 'פנייה מהאתר';
+      const msg     = form.querySelector('#cf-msg')?.value?.trim()     || '';
+      if (!name || !email || !msg) { showToast('אנא מלאו את כל השדות הנדרשים'); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('כתובת המייל אינה תקינה'); return; }
+      const body = `שם: ${name}\nמייל: ${email}\n\n${msg}`;
+      location.href = `mailto:${_c.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
+})();
 
-  /* ---------- YEAR IN FOOTER ---------- */
-  document.querySelectorAll("[data-year]").forEach(function (el) {
-    el.textContent = new Date().getFullYear();
+/* ── Audience quick-links mailto/WA on join page ── */
+(function(){
+  document.querySelectorAll('[data-contact="mail"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const subj = encodeURIComponent(btn.dataset.subject || 'פנייה מהאתר');
+      location.href = `mailto:${_c.email}?subject=${subj}`;
+    });
   });
+  document.querySelectorAll('[data-contact="wa"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const text = encodeURIComponent(btn.dataset.text || 'שלום, אשמח לשמוע עוד על בשבילנו');
+      window.open(_c.wa + '?text=' + text, '_blank', 'noopener');
+    });
+  });
+})();
+
+/* ── Footer year ── */
+(function(){
+  const el = document.querySelector('.footer-year');
+  if (el) el.textContent = new Date().getFullYear();
 })();

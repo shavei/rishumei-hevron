@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <!-- Path/trail curving up -->
+  <path d="M8 56 Q20 48 28 36 Q34 26 32 16" stroke="#16324B" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Two leaves sprouting -->
+  <path d="M32 16 Q26 8 20 10 Q24 18 32 16Z" fill="#1F8A4D"/>
+  <path d="M32 16 Q38 7 44 10 Q40 18 32 16Z" fill="#1F8A4D"/>
+  <!-- Sun arc rays -->
+  <path d="M32 10 L32 4" stroke="#C7912F" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M32 10 L38 6" stroke="#C7912F" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M32 10 L26 6" stroke="#C7912F" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M32 10 L43 9" stroke="#C7912F" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M32 10 L21 9" stroke="#C7912F" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
