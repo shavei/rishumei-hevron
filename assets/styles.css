@@ -749,8 +749,8 @@ ul, ol { list-style: none; }
 .to-top { position:fixed; inset-block-end:2rem; inset-inline-end:2rem; width:46px; height:46px; background:var(--ink); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:var(--sh); opacity:0; pointer-events:none; transition:opacity .3s,transform .3s; z-index:800; }
 .to-top.show { opacity:1; pointer-events:auto; }
 .to-top:hover { transform:translateY(-3px); }
-.toast { position:fixed; inset-block-end:2rem; inset-inline-start:50%; transform:translateX(50%) translateY(20px); background:var(--green); color:#fff; font-family:var(--display); font-weight:700; padding:.85rem 1.75rem; border-radius:var(--r-pill); box-shadow:var(--sh-g); opacity:0; transition:opacity .35s,transform .35s; pointer-events:none; z-index:9000; }
-.toast.show { opacity:1; transform:translateX(50%) translateY(0); }
+.toast { position:fixed; inset-block-end:2rem; left:50%; transform:translateX(-50%) translateY(20px); background:var(--green); color:#fff; font-family:var(--display); font-weight:700; padding:.85rem 1.75rem; border-radius:var(--r-pill); box-shadow:var(--sh-g); opacity:0; transition:opacity .35s,transform .35s; pointer-events:none; z-index:9000; }
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 
 /* ── Bento (ב.2) ── */
 .bento { display:grid; grid-template-columns:repeat(12, 1fr); gap:1.25rem; }
