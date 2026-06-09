@@ -167,8 +167,11 @@ const _c = (function(){
     btn.addEventListener('click', () => {
       const item = btn.closest('.faq-item');
       const wasOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(o => o.classList.remove('open'));
-      if (!wasOpen) item.classList.add('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-q')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
     });
   });
 })();
@@ -193,7 +196,7 @@ function showToast(msg){
 /* ── Quick-route chips (contact page) ── */
 (function(){
   const chips = document.querySelectorAll('.chip-btn[data-subject]');
-  const subjectField = document.getElementById('contact-subject');
+  const subjectField = document.getElementById('cf-subject');
   if (!chips.length || !subjectField) return;
   chips.forEach(c => {
     c.addEventListener('click', () => {
@@ -257,4 +260,48 @@ function showToast(msg){
 (function(){
   const el = document.querySelector('.footer-year');
   if (el) el.textContent = new Date().getFullYear();
+})();
+
+/* ── Donate: choose amount → mailto/WhatsApp ── */
+(function(){
+  const grid = document.querySelector('.give-grid');
+  if (!grid) return;
+  let amount = '180', label = 'מפגש זיכרון בקהילה', freq = 'חד-פעמית';
+  const out = document.getElementById('give-selected-text');
+  function refresh(){
+    out.textContent = (amount ? '₪' + (+amount).toLocaleString('he-IL') + ' — ' : '') + label + ' · ' + freq;
+  }
+  grid.querySelectorAll('.give-card').forEach(c => {
+    c.addEventListener('click', () => {
+      grid.querySelectorAll('.give-card').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      amount = c.dataset.amount || ''; label = c.dataset.label || ''; refresh();
+    });
+  });
+  document.querySelectorAll('.give-freq .chip-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.give-freq .chip-btn').forEach(x => x.classList.remove('active'));
+      b.classList.add('active'); freq = b.dataset.freq; refresh();
+    });
+  });
+  function message(){
+    const amt = amount ? ('בסך ₪' + (+amount).toLocaleString('he-IL')) : '(סכום שנבחר בהמשך)';
+    return `שלום, אני רוצה לתרום לבשבילנו ${amt} — תרומה ${freq}${label ? ' (' + label + ')' : ''}. אשמח לקבל פרטים והנחיות.`;
+  }
+  document.getElementById('give-mail')?.addEventListener('click', () => {
+    location.href = `mailto:${_c.email}?subject=${encodeURIComponent('תרומה לבשבילנו')}&body=${encodeURIComponent(message())}`;
+  });
+  document.getElementById('give-wa')?.addEventListener('click', () => {
+    window.open(_c.wa + '?text=' + encodeURIComponent(message()), '_blank', 'noopener');
+  });
+  grid.querySelector('[data-amount="180"]')?.classList.add('active');
+  refresh();
+})();
+
+/* ── Lenis smooth scroll (progressive, respects reduced-motion) ── */
+(function(){
+  if (REDUCED || typeof Lenis === 'undefined') return;
+  const lenis = new Lenis({ duration: 1.05, smoothWheel: true, touchMultiplier: 1.6 });
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
 })();

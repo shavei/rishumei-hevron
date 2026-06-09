@@ -3,7 +3,7 @@
    RTL Hebrew, light-only, native CSS animations, no build
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap');
+/* Fonts are preconnected + loaded via <link> in each page <head> (faster than @import). */
 
 /* ── View Transitions ── */
 @view-transition { navigation: auto; }
@@ -23,7 +23,7 @@
 
   --ink:        #16324B;
   --ink-soft:   #33506B;
-  --muted:      #7A7668;
+  --muted:      #6B6657;
   --gold:       #C7912F;
   --gold-light: #E4B96A;
   --green:      #1F8A4D;
@@ -81,7 +81,8 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-img, picture { display: block; max-width: 100%; height: auto; }
+img { display: block; max-width: 100%; height: auto; }
+picture { display: contents; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; border: none; background: none; }
 ul, ol { list-style: none; }
@@ -704,6 +705,96 @@ ul, ol { list-style: none; }
 .toast { position:fixed; inset-block-end:2rem; inset-inline-start:50%; transform:translateX(50%) translateY(20px); background:var(--green); color:#fff; font-family:var(--display); font-weight:700; padding:.85rem 1.75rem; border-radius:var(--r-pill); box-shadow:var(--sh-g); opacity:0; transition:opacity .35s,transform .35s; pointer-events:none; z-index:9000; }
 .toast.show { opacity:1; transform:translateX(50%) translateY(0); }
 
+/* ── Bento (ב.2) ── */
+.bento { display:grid; grid-template-columns:repeat(12, 1fr); gap:1.25rem; }
+.bento > * { grid-column:span 6; }
+.bento .b7 { grid-column:span 7; }
+.bento .b5 { grid-column:span 5; }
+.bento .b12 { grid-column:span 12; }
+@media (max-width:760px) {
+  .bento { grid-template-columns:1fr; }
+  .bento > *, .bento .b7, .bento .b5, .bento .b12 { grid-column:span 1; }
+}
+
+/* ── Accents (ב.3) ── */
+.c-grad {
+  background:linear-gradient(110deg, var(--green) 0%, var(--gold) 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+.hero { isolation:isolate; }
+.hero::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(60% 42% at 50% -4%, color-mix(in srgb, var(--gold-light) 34%, transparent), transparent 62%),
+    radial-gradient(58% 40% at 50% 104%, color-mix(in srgb, var(--green) 13%, transparent), transparent 60%);
+}
+
+/* ── Donate / Give ── */
+.give-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; }
+.give-card {
+  text-align:right; background:var(--card); border:1.5px solid var(--line);
+  border-radius:var(--r-sm); padding:1.4rem 1.5rem; cursor:pointer;
+  display:flex; flex-direction:column; gap:.35rem;
+  transition:transform .2s var(--ease-out), box-shadow .2s, border-color .2s, background .2s;
+}
+.give-card:hover { transform:translateY(-3px); box-shadow:var(--sh); border-color:var(--gold); }
+.give-card.active { border-color:var(--gold); background:var(--sky); box-shadow:var(--sh-g); }
+.give-amount { font-family:var(--display); font-weight:900; font-size:1.6rem; color:var(--gold); letter-spacing:-.02em; line-height:1.1; }
+.give-card.active .give-amount { color:#a9701a; }
+.give-impact { color:var(--muted); font-size:.92rem; line-height:1.55; }
+.give-action {
+  margin-block-start:2rem; text-align:center; background:var(--card);
+  border:1.5px solid var(--line); border-radius:var(--r); padding:2rem; box-shadow:var(--sh-sm);
+}
+.give-selected { font-family:var(--display); font-size:1.1rem; color:var(--ink); margin-block-end:1rem; }
+.give-selected strong { color:var(--green-deep); }
+.give-freq { display:inline-flex; gap:.5rem; margin-block-end:1.25rem; }
+.give-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.give-note { margin-block-start:1.25rem; font-size:.88rem; color:var(--muted); max-width:48ch; margin-inline:auto; line-height:1.6; }
+/* impact band (home) */
+.impact-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.25rem; }
+.impact-item { text-align:center; padding:1.5rem 1rem; }
+.impact-amount { font-family:var(--display); font-weight:900; font-size:clamp(1.8rem,3.5vw,2.6rem); color:var(--gold); letter-spacing:-.02em; display:block; line-height:1; }
+.impact-text { color:var(--muted); font-size:.95rem; margin-block-start:.6rem; line-height:1.55; }
+
+/* ── Utilities ── */
+.sr-only {
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+/* ── Utilities (ג.14 — consolidating repeated inline styles) ── */
+.page-hero .h-lead { margin-inline: auto; margin-block-start: .75rem; }
+.center-x { justify-content: center; }
+.mt-lg { margin-block-start: 2.5rem; }
+
+/* ── Audience-tailored path cards (ב.4) ── */
+.path-card { position: relative; }
+.path-card:nth-child(1) { --accent: var(--green); }
+.path-card:nth-child(2) { --accent: var(--gold); }
+.path-card:nth-child(3) { --accent: var(--ink); }
+.path-card::before {
+  content:''; position:absolute; inset-block-start:0; inset-inline:0; height:4px;
+  background: var(--accent, var(--green));
+  border-start-start-radius: var(--r); border-start-end-radius: var(--r);
+}
+.path-card:hover { border-color: var(--accent, var(--green)); }
+.path-card .path-cta { color: var(--accent, var(--green)); }
+/* larger tap targets for footer links (WCAG 2.2 · 2.5.8) */
+.footer-col a { padding-block: .15rem; }
+
+/* ── A11y & polish ── */
+:target { scroll-margin-block-start: calc(var(--nav-h) + 1.25rem); }
+.btn-ghost-light:focus-visible { outline-color: #fff; }
+/* hover lift for cards that were previously static */
+.side, .context-box, .part-side, .info-card, .outcome {
+  transition: transform .3s var(--ease-out), box-shadow .3s, border-color .3s;
+}
+.side:hover, .context-box:hover, .part-side:hover, .info-card:hover { transform: translateY(-3px); box-shadow: var(--sh); }
+.outcome:hover { transform: translateY(-2px); box-shadow: var(--sh); }
+/* image placeholder background — avoids white flash + cuts layout shift */
+.photoband, .team-lead-photo, .photo-full figure, .jcard img { background: var(--mint); }
+
 /* ======================
    RESPONSIVE
    ====================== */
@@ -717,11 +808,13 @@ ul, ol { list-style: none; }
   .closing-illo,.contact-split,.context-split,.journey,.participation { grid-template-columns:1fr; }
   .tier.feat { transform:none; }
 }
+@media (max-width:1024px) {
+  .nav-links, .nav-cta { display:none; }
+  .nav-burger { display:flex; }
+}
 @media (max-width:640px) {
   .cols2,.cols3,.sides,.steps { grid-template-columns:1fr; }
   .step::after { display:none; }
-  .nav-links,.nav-cta { display:none; }
-  .nav-burger { display:flex; }
   .footer-inner { grid-template-columns:1fr; }
   .stats { flex-direction:column; }
   .hero-title { letter-spacing:-.02em; }

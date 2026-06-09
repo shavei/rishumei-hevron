@@ -11,7 +11,25 @@
 <meta property="og:description" content="מחברים בין הזיכרון בישראל לקהילות בעולם — שביל משותף של הנצחה, חוסן וצמיחה.">
 <meta property="og:image" content="assets/images/sprout-rebirth.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://bishvileinu.org.il/">
+<meta property="og:url" content="https://bishvileinu.org.il/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="בשבילנו — זכרון בונה חיים">
+<meta name="twitter:description" content="מחברים בין הזיכרון בישראל לקהילות בעולם — שביל משותף של הנצחה, חוסן וצמיחה.">
+<meta name="twitter:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<meta name="theme-color" content="#1F8A4D">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap">
 <link rel="stylesheet" href="assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"בשבילנו","alternateName":"Bishvileinu","url":"https://bishvileinu.org.il/","logo":"https://bishvileinu.org.il/assets/icon-512.png","description":"מיזם המחבר את הנצחת נופלי מלחמת חרבות ברזל עם קהילות יהודיות בעולם — שידוך, ליווי וצמיחה משותפת.","email":"nerya@betar.org.il","telephone":"+972-50-600-0695","areaServed":"Worldwide Jewish communities and Israel","knowsAbout":["הנצחת חללי צה\"ל","חיבור ישראל והתפוצות","חוסן יהודי","זיכרון בונה חיים"],"contactPoint":{"@type":"ContactPoint","email":"nerya@betar.org.il","contactType":"customer support","availableLanguage":["he","en"]}}
+</script>
+<!-- Analytics (Plausible · ידידותי לפרטיות). להפעלה: פִּתחו חשבון, הסירו את ההערה והחליפו data-domain:
+<script defer data-domain="bishvileinu.org.il" src="https://plausible.io/js/script.js"></script>
+-->
 </head>
 <body>
 
@@ -21,6 +39,7 @@
 <div class="scroll-progress" role="progressbar" aria-label="התקדמות הקריאה"></div>
 
 <!-- ═══ NAV ═══ -->
+<!-- @nav -->
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="index" aria-label="בשבילנו — ראשי">
@@ -39,26 +58,29 @@
     <nav class="nav-links" aria-label="ניווט ראשי">
       <a href="index">בית</a>
       <a href="about">אודות</a>
+      <a href="team">צוות</a>
       <a href="how">איך זה עובד</a>
+      <a href="stories">סיפורים</a>
       <a href="join">הצטרפות</a>
       <a href="contact">צור קשר</a>
     </nav>
-    <a href="contact" class="btn btn-primary btn-sm nav-cta">דברו איתנו</a>
+    <a href="donate" class="btn btn-gold btn-sm nav-cta">תרומה</a>
     <button class="nav-burger" id="burger" aria-label="פתח תפריט" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
-
-<!-- Mobile Drawer -->
 <div class="nav-drawer" id="drawer" role="dialog" aria-label="תפריט ניווט">
   <a href="index">בית</a>
   <a href="about">אודות</a>
+  <a href="team">צוות</a>
   <a href="how">איך זה עובד</a>
+  <a href="stories">סיפורים</a>
   <a href="join">הצטרפות</a>
   <a href="contact">צור קשר</a>
-  <a href="contact" class="btn btn-primary">דברו איתנו</a>
+  <a href="donate" class="btn btn-gold">תרומה</a>
 </div>
+<!-- /@nav -->
 
 <main id="main">
 
@@ -129,7 +151,7 @@
   <div class="photo-full reveal" aria-hidden="true">
     <figure>
       <div class="photoband" style="height:clamp(280px,40vw,500px);border-radius:0">
-        <img src="assets/images/sprout-rebirth.png" alt="נבט צומח מאדמה שרופה — סמל לצמיחה מתוך הכאב" width="1440" height="810" loading="lazy">
+        <picture><source type="image/avif" srcset="assets/images/sprout-rebirth.avif 1536w, assets/images/sprout-rebirth-768.avif 768w" sizes="(max-width:760px) 100vw, 1100px"><source type="image/webp" srcset="assets/images/sprout-rebirth.webp 1536w, assets/images/sprout-rebirth-768.webp 768w" sizes="(max-width:760px) 100vw, 1100px"><img src="assets/images/sprout-rebirth.png" alt="נבט צומח מאדמה שרופה — סמל לצמיחה מתוך הכאב" width="1440" height="810" loading="lazy" decoding="async"></picture>
       </div>
     </figure>
   </div>
@@ -151,7 +173,7 @@
         <span class="pill">❤️ בריאות</span>
       </div>
       <div class="photoband reveal" style="height:clamp(260px,36vw,440px)">
-        <img src="assets/images/olive-planting.png" alt="קבוצה שותלת עצי זית — מיזם הנצחה" width="922" height="922" loading="lazy">
+        <picture><source type="image/avif" srcset="assets/images/olive-planting.avif"><source type="image/webp" srcset="assets/images/olive-planting.webp"><img src="assets/images/olive-planting.png" alt="קבוצה שותלת עצי זית — מיזם הנצחה" width="922" height="922" loading="lazy" decoding="async"></picture>
       </div>
     </div>
   </section>
@@ -166,23 +188,43 @@
       </div>
       <div class="cols3">
         <div class="card reveal delay-1" data-tilt>
-          <div class="card-icon">🔗</div>
+          <div class="card-icon" aria-hidden="true">🔗</div>
           <p class="card-eyebrow">מה אנחנו</p>
           <h3>גוף מקשר ומלווה</h3>
           <p>מתאימים בין מיזם הנצחה לקהילה, ומלווים את הקשר מהמפגש הראשון ועד לשותפות מבוססת.</p>
         </div>
         <div class="card reveal delay-2" data-tilt>
-          <div class="card-icon">🛤️</div>
+          <div class="card-icon" aria-hidden="true">🛤️</div>
           <p class="card-eyebrow">איך</p>
           <h3>שידוך · ליווי · סבסוד</h3>
           <p>חיבור מדויק, חומרים חינוכיים, וסבסוד המפגש — כדי שהשותפות תתחיל ותימשך.</p>
         </div>
         <div class="card reveal delay-3" data-tilt>
-          <div class="card-icon">🌍</div>
+          <div class="card-icon" aria-hidden="true">🌍</div>
           <p class="card-eyebrow">למה זה חשוב</p>
           <h3>חוסן יהודי משותף</h3>
           <p>מחזקים את הזהות והחוסן של הקהילות, ובונים גשרים חזקים יותר בין יהודי העולם וישראל.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5.5 · IMPACT (amount → outcome) ═══ -->
+  <section class="section section-sky" aria-labelledby="impact-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label label-gold">ההשפעה שלכם</p>
+        <h2 id="impact-h" class="h-title">תרומה ש<span class="c-grad">הופכת לשביל</span></h2>
+        <p class="h-lead">כל סכום נוגע ישירות באנשים — הנה איך.</p>
+      </div>
+      <div class="impact-row reveal">
+        <div class="impact-item"><span class="impact-amount">₪85</span><p class="impact-text">ערכת לימוד לכיתה על דמותו של נופל</p></div>
+        <div class="impact-item"><span class="impact-amount">₪180</span><p class="impact-text">מפגש זיכרון בין משפחה שכולה לקהילה</p></div>
+        <div class="impact-item"><span class="impact-amount">₪1,800</span><p class="impact-text">סבסוד ביקור משלחת במיזם הנצחה בישראל</p></div>
+      </div>
+      <div class="cta-btns center-x mt-lg">
+        <a href="donate" class="btn btn-gold btn-lg">לתרומה</a>
+        <a href="how#tiers" class="btn btn-ghost btn-lg">דרגות שותפות</a>
       </div>
     </div>
   </section>
@@ -197,19 +239,19 @@
       </div>
       <div class="cols3">
         <a href="join#communities" class="path-card reveal delay-1" data-tilt>
-          <div class="path-icon">🕍</div>
+          <div class="path-icon" aria-hidden="true">🕍</div>
           <div class="path-title">קהילות וארגונים</div>
           <p class="path-desc">בתי ספר, בתי כנסת, פדרציות וארגונים יהודיים שרוצים להצטרף לשביל ולאמץ מיזם הנצחה.</p>
           <div class="path-cta">להצטרף כקהילה <span aria-hidden="true">←</span></div>
         </a>
         <a href="join#families" class="path-card reveal delay-2" data-tilt>
-          <div class="path-icon">🌱</div>
+          <div class="path-icon" aria-hidden="true">🌱</div>
           <div class="path-title">משפחות ומיזמים</div>
           <p class="path-desc">משפחות שכולות ומיזמי הנצחה שרוצים להרחיב את מעגל הזיכרון ולהתחבר לקהילות בעולם.</p>
           <div class="path-cta">לחשוף את המיזם <span aria-hidden="true">←</span></div>
         </a>
         <a href="join#donors" class="path-card reveal delay-3" data-tilt>
-          <div class="path-icon">🤲</div>
+          <div class="path-icon" aria-hidden="true">🤲</div>
           <div class="path-title">תורמים ושותפים</div>
           <p class="path-desc">יחידים וגופים שרוצים לתמוך ולהרחיב את המיזם לקהילות רבות יותר ברחבי העולם.</p>
           <div class="path-cta">לשמוע על שותפות <span aria-hidden="true">←</span></div>
@@ -225,8 +267,8 @@
       <h2 id="cta-h">נושיט יד, נצטרף ונרחיב את מעגל העשייה</h2>
       <p>עבורם ובשבילנו — כי הזיכרון הוא הגשר.</p>
       <div class="cta-btns">
-        <a href="join" class="btn btn-gold btn-lg">הצטרפו עכשיו</a>
-        <a href="about" class="btn btn-ghost-light btn-lg">קראו עוד על החזון</a>
+        <a href="join" class="btn btn-gold btn-lg">הצטרפו למעגל</a>
+        <a href="donate" class="btn btn-ghost-light btn-lg">לתרומה</a>
       </div>
     </div>
   </section>
@@ -234,6 +276,7 @@
 </main>
 
 <!-- ═══ FOOTER ═══ -->
+<!-- @footer -->
 <footer class="site-footer" aria-label="כותרת תחתונה">
   <div class="footer-inner">
     <div class="footer-brand">
@@ -254,33 +297,39 @@
       <h4>האתר</h4>
       <a href="index">בית</a>
       <a href="about">אודות</a>
+      <a href="team">צוות</a>
       <a href="how">איך זה עובד</a>
+      <a href="stories">סיפורים</a>
       <a href="join">הצטרפות</a>
       <a href="contact">צור קשר</a>
     </nav>
     <div class="footer-col">
-      <h4>הצטרפות</h4>
+      <h4>הצטרפות ותרומה</h4>
       <a href="join#communities">קהילות וארגונים</a>
       <a href="join#families">משפחות ומיזמים</a>
       <a href="join#donors">תורמים ושותפים</a>
+      <a href="donate">תרומה</a>
     </div>
     <div class="footer-col">
       <h4>יצירת קשר</h4>
-      <a href="contact">שלחו הודעה</a>
-      <a href="contact" id="footer-wa">וואטסאפ</a>
+      <a href="mailto:nerya@betar.org.il">nerya@betar.org.il</a>
+      <a href="https://wa.me/972506000695" target="_blank" rel="noopener">וואטסאפ · 050-600-0695</a>
+      <a href="contact">טופס יצירת קשר</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© <span class="footer-year"></span> בשבילנו · זכרון בונה חיים · כל הזכויות שמורות</span>
+    <span>© <span class="footer-year"></span> בשבילנו · זכרון בונה חיים · עמותה רשומה (ע״ר —)</span>
     <span>לזכרם. <strong style="color:rgba(255,255,255,.55)">בשבילנו.</strong></span>
   </div>
 </footer>
+<!-- /@footer -->
 
 <button class="to-top" aria-label="חזרה לראש הדף">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 <div class="toast" role="alert" aria-live="polite"></div>
 
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="assets/main.js"></script>
 </body>
 </html>

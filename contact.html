@@ -7,7 +7,26 @@
 <meta name="description" content="דברו איתנו — שלחו הודעה או פנו דרך וואטסאפ. אנחנו כאן לכל שאלה, הצעת שיתוף פעולה ורצון להצטרף.">
 <meta property="og:title" content="צור קשר — בשבילנו">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://bishvileinu.org.il/contact">
+<meta property="og:url" content="https://bishvileinu.org.il/contact">
+<meta property="og:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="צור קשר — בשבילנו">
+<meta name="twitter:description" content="דברו איתנו — שלחו הודעה או פנו דרך וואטסאפ. אנחנו כאן לכל שאלה, הצעת שיתוף פעולה ורצון להצטרף.">
+<meta name="twitter:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<meta name="theme-color" content="#1F8A4D">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap">
 <link rel="stylesheet" href="assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"בשבילנו","alternateName":"Bishvileinu","url":"https://bishvileinu.org.il/","logo":"https://bishvileinu.org.il/assets/icon-512.png","description":"מיזם המחבר את הנצחת נופלי מלחמת חרבות ברזל עם קהילות יהודיות בעולם — שידוך, ליווי וצמיחה משותפת.","email":"nerya@betar.org.il","telephone":"+972-50-600-0695","areaServed":"Worldwide Jewish communities and Israel","knowsAbout":["הנצחת חללי צה\"ל","חיבור ישראל והתפוצות","חוסן יהודי","זיכרון בונה חיים"],"contactPoint":{"@type":"ContactPoint","email":"nerya@betar.org.il","contactType":"customer support","availableLanguage":["he","en"]}}
+</script>
+<!-- Analytics (Plausible · ידידותי לפרטיות). להפעלה: פִּתחו חשבון, הסירו את ההערה והחליפו data-domain:
+<script defer data-domain="bishvileinu.org.il" src="https://plausible.io/js/script.js"></script>
+-->
 </head>
 <body>
 
@@ -16,9 +35,10 @@
 <div class="fx-grain" aria-hidden="true"></div>
 <div class="scroll-progress"></div>
 
+<!-- @nav -->
 <header class="nav" id="nav">
   <div class="nav-inner">
-    <a class="brand" href="index">
+    <a class="brand" href="index" aria-label="בשבילנו — ראשי">
       <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
         <path d="M8 56 Q20 48 28 36 Q34 26 32 16" stroke="#16324B" stroke-width="3" stroke-linecap="round"/>
         <path d="M32 16 Q26 8 20 10 Q24 18 32 16Z" fill="#1F8A4D"/>
@@ -31,27 +51,32 @@
       </svg>
       <span>בשבילנו</span>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="ניווט ראשי">
       <a href="index">בית</a>
       <a href="about">אודות</a>
+      <a href="team">צוות</a>
       <a href="how">איך זה עובד</a>
+      <a href="stories">סיפורים</a>
       <a href="join">הצטרפות</a>
-      <a href="contact" class="active">צור קשר</a>
+      <a href="contact">צור קשר</a>
     </nav>
-    <a href="contact" class="btn btn-primary btn-sm nav-cta">דברו איתנו</a>
+    <a href="donate" class="btn btn-gold btn-sm nav-cta">תרומה</a>
     <button class="nav-burger" id="burger" aria-label="פתח תפריט" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
-<div class="nav-drawer" id="drawer">
+<div class="nav-drawer" id="drawer" role="dialog" aria-label="תפריט ניווט">
   <a href="index">בית</a>
   <a href="about">אודות</a>
+  <a href="team">צוות</a>
   <a href="how">איך זה עובד</a>
+  <a href="stories">סיפורים</a>
   <a href="join">הצטרפות</a>
-  <a href="contact" class="active">צור קשר</a>
-  <a href="contact" class="btn btn-primary">דברו איתנו</a>
+  <a href="contact">צור קשר</a>
+  <a href="donate" class="btn btn-gold">תרומה</a>
 </div>
+<!-- /@nav -->
 
 <main id="main">
 
@@ -59,7 +84,7 @@
   <section class="page-hero" aria-labelledby="contact-h1">
     <p class="label">בואו נדבר</p>
     <h1 id="contact-h1" class="h-title kinetic">דברו <span class="c-green">איתנו</span></h1>
-    <p class="h-lead" style="margin-inline:auto;margin-block-start:.75rem">יש לכם שאלה, הצעה, או פשוט רצון להצטרף? אנחנו כאן — בחרו את הדרך שנוחה לכם.</p>
+    <p class="h-lead">יש לכם שאלה, הצעה, או פשוט רצון להצטרף? אנחנו כאן — בחרו את הדרך שנוחה לכם.</p>
   </section>
 
   <!-- ═══ 2 · QUICK-ROUTE CHIPS ═══ -->
@@ -122,29 +147,29 @@
 
         <!-- INFO -->
         <div class="contact-info reveal delay-2">
-          <div class="info-card" data-tilt>
-            <div class="info-icon">✉️</div>
+          <a class="info-card" href="mailto:nerya@betar.org.il" data-tilt>
+            <div class="info-icon" aria-hidden="true">✉️</div>
             <div>
-              <strong>שליחת מייל</strong>
-              <span>לחצו "שלחו הודעה" לפתיחת המייל שלכם</span>
+              <strong>מייל</strong>
+              <span dir="ltr" style="display:block;text-align:right">nerya@betar.org.il</span>
             </div>
-          </div>
-          <div class="info-card" data-tilt>
-            <div class="info-icon">💬</div>
+          </a>
+          <a class="info-card" href="https://wa.me/972506000695" target="_blank" rel="noopener" data-tilt>
+            <div class="info-icon" aria-hidden="true">💬</div>
             <div>
               <strong>וואטסאפ</strong>
-              <span>לחצו "וואטסאפ" לשיחה ישירה וללא המתנה</span>
+              <span dir="ltr" style="display:block;text-align:right">+972&nbsp;50-600-0695</span>
             </div>
-          </div>
+          </a>
           <div class="info-card" data-tilt>
-            <div class="info-icon">⏱️</div>
+            <div class="info-icon" aria-hidden="true">⏱️</div>
             <div>
               <strong>זמן תגובה</strong>
               <span>בדרך כלל מגיבים תוך 24–48 שעות</span>
             </div>
           </div>
           <div class="info-card" data-tilt>
-            <div class="info-icon">🌍</div>
+            <div class="info-icon" aria-hidden="true">🌍</div>
             <div>
               <strong>פועלים בעברית ובאנגלית</strong>
               <span>ניתן לפנות בשתי השפות</span>
@@ -164,10 +189,11 @@
 
 </main>
 
-<footer class="site-footer">
+<!-- @footer -->
+<footer class="site-footer" aria-label="כותרת תחתונה">
   <div class="footer-inner">
     <div class="footer-brand">
-      <a class="brand" href="index">
+      <a class="brand" href="index" aria-label="בשבילנו — ראשי">
         <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
           <path d="M8 56 Q20 48 28 36 Q34 26 32 16" stroke="rgba(255,255,255,.7)" stroke-width="3" stroke-linecap="round"/>
           <path d="M32 16 Q26 8 20 10 Q24 18 32 16Z" fill="#1F8A4D"/>
@@ -180,36 +206,42 @@
       </a>
       <p>זכרון בונה חיים — מחברים את הנצחת גיבורי האומה לקהילות יהודיות בעולם.</p>
     </div>
-    <nav class="footer-col">
+    <nav class="footer-col" aria-label="ניווט האתר">
       <h4>האתר</h4>
       <a href="index">בית</a>
       <a href="about">אודות</a>
+      <a href="team">צוות</a>
       <a href="how">איך זה עובד</a>
+      <a href="stories">סיפורים</a>
       <a href="join">הצטרפות</a>
       <a href="contact">צור קשר</a>
     </nav>
     <div class="footer-col">
-      <h4>הצטרפות</h4>
+      <h4>הצטרפות ותרומה</h4>
       <a href="join#communities">קהילות וארגונים</a>
       <a href="join#families">משפחות ומיזמים</a>
       <a href="join#donors">תורמים ושותפים</a>
+      <a href="donate">תרומה</a>
     </div>
     <div class="footer-col">
       <h4>יצירת קשר</h4>
-      <a href="contact">שלחו הודעה</a>
-      <a href="contact">וואטסאפ</a>
+      <a href="mailto:nerya@betar.org.il">nerya@betar.org.il</a>
+      <a href="https://wa.me/972506000695" target="_blank" rel="noopener">וואטסאפ · 050-600-0695</a>
+      <a href="contact">טופס יצירת קשר</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© <span class="footer-year"></span> בשבילנו · זכרון בונה חיים</span>
+    <span>© <span class="footer-year"></span> בשבילנו · זכרון בונה חיים · עמותה רשומה (ע״ר —)</span>
     <span>לזכרם. <strong style="color:rgba(255,255,255,.55)">בשבילנו.</strong></span>
   </div>
 </footer>
+<!-- /@footer -->
 
 <button class="to-top" aria-label="חזרה לראש הדף">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 <div class="toast" role="alert" aria-live="polite"></div>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="assets/main.js"></script>
 </body>
 </html>
