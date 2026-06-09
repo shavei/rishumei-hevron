@@ -704,6 +704,31 @@ ul, ol { list-style: none; }
 .toast { position:fixed; inset-block-end:2rem; inset-inline-start:50%; transform:translateX(50%) translateY(20px); background:var(--green); color:#fff; font-family:var(--display); font-weight:700; padding:.85rem 1.75rem; border-radius:var(--r-pill); box-shadow:var(--sh-g); opacity:0; transition:opacity .35s,transform .35s; pointer-events:none; z-index:9000; }
 .toast.show { opacity:1; transform:translateX(50%) translateY(0); }
 
+/* ── Bento (ב.2) ── */
+.bento { display:grid; grid-template-columns:repeat(12, 1fr); gap:1.25rem; }
+.bento > * { grid-column:span 6; }
+.bento .b7 { grid-column:span 7; }
+.bento .b5 { grid-column:span 5; }
+.bento .b12 { grid-column:span 12; }
+@media (max-width:760px) {
+  .bento { grid-template-columns:1fr; }
+  .bento > *, .bento .b7, .bento .b5, .bento .b12 { grid-column:span 1; }
+}
+
+/* ── Accents (ב.3) ── */
+.c-grad {
+  background:linear-gradient(110deg, var(--green) 0%, var(--gold) 100%);
+  -webkit-background-clip:text; background-clip:text;
+  -webkit-text-fill-color:transparent; color:transparent;
+}
+.hero { isolation:isolate; }
+.hero::before {
+  content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(60% 42% at 50% -4%, color-mix(in srgb, var(--gold-light) 34%, transparent), transparent 62%),
+    radial-gradient(58% 40% at 50% 104%, color-mix(in srgb, var(--green) 13%, transparent), transparent 60%);
+}
+
 /* ── Donate / Give ── */
 .give-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; }
 .give-card {
