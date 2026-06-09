@@ -636,6 +636,69 @@ ul, ol { list-style: none; }
 .context-box h3 { font-family:var(--display); font-size:1.15rem; font-weight:800; color:var(--ink); margin-block-end:.5rem; }
 .context-box p { color:var(--muted); line-height:1.7; }
 
+/* ── Team ── */
+.team { display:grid; gap:1.5rem; max-width:980px; margin-inline:auto; }
+.team-lead {
+  position:relative; display:grid;
+  grid-template-columns: clamp(230px, 34%, 330px) 1fr; gap:0;
+  background:var(--card); border-radius:var(--r); overflow:hidden;
+  box-shadow:var(--sh); border:1.5px solid var(--line);
+}
+.team-lead::before {
+  content:''; position:absolute; inset-block-start:0; inset-inline:0; height:5px;
+  background:linear-gradient(to left, var(--gold), var(--green)); z-index:2;
+}
+.team-lead-photo { position:relative; min-height:340px; background:var(--mint); }
+.team-lead-photo img { width:100%; height:100%; object-fit:cover; object-position:50% 18%; }
+.team-lead-photo::after {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(22,50,75,.55) 0%, transparent 38%);
+}
+.team-badge {
+  position:absolute; inset-block-end:.9rem; inset-inline-start:.9rem; z-index:1;
+  display:inline-flex; align-items:center; gap:.4rem;
+  background:color-mix(in srgb, var(--ink) 72%, transparent); color:#fff;
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  font-family:var(--display); font-weight:700; font-size:.76rem;
+  padding:.42rem .85rem; border-radius:var(--r-pill);
+  border:1px solid rgba(255,255,255,.2); line-height:1.2;
+}
+.team-badge svg { width:14px; height:14px; flex-shrink:0; color:var(--gold-light); }
+.team-lead-info { padding:clamp(1.5rem, 3vw, 2.25rem); }
+.team-role {
+  font-family:var(--display); font-size:var(--fz-eye); font-weight:800;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--green); margin-block-end:.3rem;
+}
+.team-name {
+  font-family:var(--display); font-size:1.6rem; font-weight:900;
+  color:var(--ink); letter-spacing:-.015em; line-height:1.1; margin-block-end:.5rem;
+}
+.team-chips { display:flex; flex-wrap:wrap; gap:.5rem; margin-block:.85rem 1.15rem; }
+.team-chip {
+  font-family:var(--display); font-weight:700; font-size:.78rem;
+  padding:.32rem .8rem; border-radius:var(--r-pill);
+  background:var(--mint); color:var(--green-deep);
+  border:1px solid color-mix(in srgb, var(--green) 22%, transparent);
+}
+.team-chip.gold {
+  background:var(--sky); color:#9a6a14;
+  border-color:color-mix(in srgb, var(--gold) 32%, transparent);
+}
+.team-bio p { color:var(--muted); line-height:1.75; margin-block-end:.75rem; }
+.team-bio p:last-child { margin-block-end:0; }
+.team-member {
+  display:grid; grid-template-columns: 128px 1fr; gap:1.5rem; align-items:center;
+  background:var(--card); border-radius:var(--r); padding:1.5rem 1.75rem;
+  box-shadow:var(--sh-sm); border:1px solid var(--line);
+  max-width:720px;
+}
+.team-photo-sm {
+  width:128px; height:128px; border-radius:22px; overflow:hidden;
+  box-shadow:var(--sh-sm); border:2px solid var(--card); flex-shrink:0;
+}
+.team-photo-sm img { width:100%; height:100%; object-fit:cover; object-position:50% 22%; }
+.team-member .team-name { font-size:1.28rem; }
+
 /* ── Footer ── */
 .site-footer { background:var(--ink); color:rgba(255,255,255,.72); padding-block:clamp(3rem,6vw,5rem); padding-inline:var(--pad-x); position:relative; z-index:2; }
 .footer-inner { max-width:var(--maxw); margin-inline:auto; display:grid; grid-template-columns:1.5fr repeat(3,1fr); gap:3rem; }
@@ -675,6 +738,11 @@ ul, ol { list-style: none; }
   .stats { flex-direction:column; }
   .hero-title { letter-spacing:-.02em; }
   .statement-line { font-size:clamp(1.35rem,7vw,2.1rem); }
+  .team-lead { grid-template-columns:1fr; }
+  .team-lead-photo { min-height:0; aspect-ratio:4/3; }
+  .team-lead-photo img { object-position:50% 14%; }
+  .team-member { grid-template-columns:1fr; justify-items:center; text-align:center; padding:1.75rem 1.5rem; }
+  .team-member .team-chips { justify-content:center; }
 }
 
 @media (prefers-reduced-motion:reduce) {
