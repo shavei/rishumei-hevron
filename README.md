@@ -1,54 +1,78 @@
-# Bishvileinu — Nonprofit Website · *Memory Builds Life*
+# בשבילנו — אתר העמותה · *זכרון בונה חיים*
 
-A multi-page brochure website for the **Bishvileinu** nonprofit, which connects the memorial
-initiatives for the fallen of Israel's War of Revival with Jewish communities around the world.
-The design stays true to the original presentation (a cream / growth-green / sunrise-gold palette,
-Heebo + Assistant typefaces, a "sun rising over a sprout" motif), and is built as a real website
-with 2026-grade design capabilities.
+אתר מרובה-עמודים (סטטי, ללא שלב build בזמן הרצה) עבור מיזם **בשבילנו**, המחבר את
+הנצחת נופלי מלחמת חרבות ברזל עם קהילות יהודיות ברחבי העולם — שידוך, ליווי וצמיחה משותפת.
+עברית RTL, פלטת קרם/ירוק-צמיחה/זהב-זריחה, ומוטיב "שמש עולה מעל נבט".
 
-> A static site (HTML/CSS/JS) with no build step — it opens and hosts anywhere (GitHub Pages, Netlify, Vercel, any static server).
+> אתר סטטי (HTML/CSS/JS) — נפתח ומתארח בכל מקום (Vercel/Netlify/GitHub Pages/כל שרת סטטי).
 
-## Structure
+## מבנה
 
 ```
-index.html      Home — landing page
-about.html      About Us — background, growth, the three sides, the double meaning
-how.html        How It Works — four steps, what we do, the continuity story, outcomes
-join.html       Join — who it's for, the partnership model (3 tiers), the vision
-contact.html    Contact — contact form (demo), contact details, FAQ
+index.html      בית — דף נחיתה (Hero, מניפסט, נתונים, השפעה, בורר מסלולים)
+about.html      אודות — רקע, משמעות כפולה, תכלית, שלושה צדדים, צוות, חזון
+how.html        איך זה עובד — שירותים (Bento), שלבים, תוצרים, סיפור→מעשה, דרגות
+join.html       הצטרפות — 3 מסלולי קהל, דרגות, שאלות נפוצות
+contact.html    צור קשר — צ׳יפים, טופס (mailto/WhatsApp), פרטי קשר
+donate.html     תרומה — בחירת סכום לפי השפעה, שקיפות (ניתוב למייל/וואטסאפ)
+stories.html    סיפורים — קיר הזיכרון החי (טיזר; מאגר מלא בקרוב)
+
+partials/        מקור-אמת משותף ל-nav ו-footer
+build.py         מזריק את ה-partials לעמודים (ראו "בנייה")
 assets/
-  styles.css    All design tokens and components (shared across all pages)
-  main.js        navigation, dark mode, mobile menu, scroll animations, number counters,
-                 lightbox, accordion, form, back-to-top, progress bar
-  images/        the six photographs
-  sun.svg        the sun icon (favicon)
+  styles.css     כל ה-design tokens והרכיבים
+  main.js         ניווט, מגירה, reveal, מונים, kinetic, tilt, FAQ, טופס,
+                  בחירת תרומה, Lenis smooth-scroll, back-to-top
+  images/         צילומים (+ team/ לתמונות הצוות) — JPG/PNG עם וריאנטי .webp
+  icon-*.png · apple-touch-icon.png · favicon.svg · logo.svg
+manifest.json · robots.txt · sitemap.xml
 ```
 
-## Site features
+## בנייה (nav/footer משותפים)
 
-Sticky navigation with blur-on-scroll · active-page highlighting · full mobile menu · **dark mode** (persisted) ·
-scroll progress bar · staggered reveal animations · animated number counters · **lightbox** for images ·
-**FAQ accordion** · back-to-top button · smooth scrolling · contact form with validation and a success
-message · semantic HTML + meta/Open Graph tags + favicon · support for `prefers-reduced-motion`.
+ה-nav וה-footer מוגדרים פעם אחת ב-`partials/` ומוזרקים לעמודים בין סימוני
+`<!-- @nav -->` / `<!-- @footer -->`. לאחר עריכת partial — הריצו:
 
-## Running locally
+```bash
+python3 build.py
+```
+
+מצב העמוד הפעיל (active) בתפריט נקבע אוטומטית ב-`main.js` לפי כתובת העמוד.
+הוספת/עדכון תמונות WebP: `Pillow` (ראו ההיסטוריה של הריפו לסקריפט הייצור).
+
+## יכולות עיצוב (2026)
+
+View Transitions למעברי עמוד · אנימציות מונעות-גלילה (`animation-timeline`) ·
+Lenis smooth-scroll · טקסט קינטי מילה-אחר-מילה · מוני-ספירה · הטיית כרטיסים 3D ·
+פריסות Bento · טקסט גרדיאנט · תפריט נייד · FAQ נגיש (`aria-expanded`) ·
+תמיכה מלאה ב-`prefers-reduced-motion` · `<picture>` + WebP responsive.
+
+## SEO ונגישות
+
+מטא + Open Graph + Twitter Card + `canonical` בכל עמוד · JSON-LD (NGO + FAQPage) ·
+`sitemap.xml` · `robots.txt` · `manifest.json` + theme-color + apple-touch-icon ·
+HTML סמנטי · skip-link · `:focus-visible` · ניגודיות תואמת WCAG · יעדי מגע.
+
+## עיצוב (tokens)
+
+ב-`:root` שבראש `assets/styles.css`. צבעי ליבה: ירוק-צמיחה `#1F8A4D`,
+זהב-זריחה `#C7912F`, כחול-כהה `#16324B`, קרם `#F6F2E9`.
+גופנים: Rubik (כותרות), Heebo (גוף), Frank Ruhl Libre (סריף).
+
+## הרצה מקומית
 
 ```bash
 python3 -m http.server 8000
-# then open in your browser: http://localhost:8000
+# פתחו: http://localhost:8000
 ```
 
-## What still needs completing (placeholders are marked on the site with a "To update" tag)
+## מה עוד צריך להשלים
 
-- **Real contact details** — email / phone / address (currently `info@bishvileinu.org.il` as a placeholder).
-- **Social media links** in the footer (currently `#`).
-- **Photographs** — the current images are AI-generated placeholders; replace them with real photos.
-- **The contact form** — currently a client-side demo only (shows a success message, no submission).
-  To connect a backend/service (Formspree / Web3Forms, etc.) there is a `DEMO ONLY` note in `assets/main.js`
-  exactly where the `FormData` should be sent.
-
-## Design
-
-The color and font tokens are defined in `:root` at the top of `assets/styles.css`; dark mode is under
-`html[data-theme="dark"]`. The core colors: growth-green `#178A5B`, sunrise-gold `#C0841C`,
-navy `#22324E`, cream `#FBF7EF`.
+- **דומיין** — להחליף את ה-placeholder `bishvileinu.org.il` (canonical/og/sitemap/JSON-LD) בדומיין האמיתי.
+- **מספר ע"ר** — להוסיף בשורת ה-footer (`עמותה רשומה (ע״ר —)`).
+- **תוכן "סיפורים"** — סיפורי הנופלים ומיזמי ההנצחה (מחכה למידע).
+- **צילומים אמיתיים** — להחליף את תמונות ה-placeholder.
+- **סליקת תרומות** — כיום ניתוב למייל/וואטסאפ; לחבר Jgive/IsraelGives לתרומה אונליין.
+- **טופס** — כיום `mailto`; אפשר לחבר backend (Supabase/Formspree).
+- **אנליטיקה** — להפעיל את קטע ה-Plausible ב-`<head>` (פתיחת חשבון + דומיין).
+- **שפות** — גרסת אנגלית/צרפתית (מתוכנן; ראו `docs/redesign-plan-2026.md`).

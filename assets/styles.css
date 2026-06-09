@@ -758,6 +758,26 @@ ul, ol { list-style: none; }
 .impact-amount { font-family:var(--display); font-weight:900; font-size:clamp(1.8rem,3.5vw,2.6rem); color:var(--gold); letter-spacing:-.02em; display:block; line-height:1; }
 .impact-text { color:var(--muted); font-size:.95rem; margin-block-start:.6rem; line-height:1.55; }
 
+/* ── Utilities (ג.14 — consolidating repeated inline styles) ── */
+.page-hero .h-lead { margin-inline: auto; margin-block-start: .75rem; }
+.center-x { justify-content: center; }
+.mt-lg { margin-block-start: 2.5rem; }
+
+/* ── Audience-tailored path cards (ב.4) ── */
+.path-card { position: relative; }
+.path-card:nth-child(1) { --accent: var(--green); }
+.path-card:nth-child(2) { --accent: var(--gold); }
+.path-card:nth-child(3) { --accent: var(--ink); }
+.path-card::before {
+  content:''; position:absolute; inset-block-start:0; inset-inline:0; height:4px;
+  background: var(--accent, var(--green));
+  border-start-start-radius: var(--r); border-start-end-radius: var(--r);
+}
+.path-card:hover { border-color: var(--accent, var(--green)); }
+.path-card .path-cta { color: var(--accent, var(--green)); }
+/* larger tap targets for footer links (WCAG 2.2 · 2.5.8) */
+.footer-col a { padding-block: .15rem; }
+
 /* ── A11y & polish ── */
 :target { scroll-margin-block-start: calc(var(--nav-h) + 1.25rem); }
 .btn-ghost-light:focus-visible { outline-color: #fff; }

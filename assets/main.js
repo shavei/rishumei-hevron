@@ -196,7 +196,7 @@ function showToast(msg){
 /* ── Quick-route chips (contact page) ── */
 (function(){
   const chips = document.querySelectorAll('.chip-btn[data-subject]');
-  const subjectField = document.getElementById('contact-subject');
+  const subjectField = document.getElementById('cf-subject');
   if (!chips.length || !subjectField) return;
   chips.forEach(c => {
     c.addEventListener('click', () => {
