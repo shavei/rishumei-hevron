@@ -1,0 +1,155 @@
+{
+  "lang": "es",
+  "dir": "ltr",
+  "meta": {
+    "title": "Bishvileinu — La memoria construye vida",
+    "description": "Bishvileinu conecta a las comunidades judías de todo el mundo con los proyectos de conmemoración en Israel, fundados por las familias en duelo de los caídos en la guerra Espadas de Hierro. Vinculación, acompañamiento, crecimiento compartido.",
+    "og_locale": "es_ES",
+    "og_title": "Bishvileinu — La memoria construye vida",
+    "og_description": "Un puente entre la memoria en Israel y las comunidades de todo el mundo — un camino común de recuerdo, resiliencia y crecimiento.",
+    "canonical": "https://bishvileinu.org.il/es/"
+  },
+  "jsonld_description": "Una iniciativa que conecta la memoria de los caídos en la guerra Espadas de Hierro con las comunidades judías de todo el mundo — vinculación, acompañamiento y crecimiento compartido.",
+  "url": {
+    "home": "/es/",
+    "about": "/about",
+    "team": "/team",
+    "how": "/how",
+    "stories": "/stories",
+    "join": "/join",
+    "contact": "/contact",
+    "donate": "/donate",
+    "join_communities": "/join#communities",
+    "join_families": "/join#families",
+    "join_donors": "/join#donors"
+  },
+  "nav": {
+    "aria_home": "Bishvileinu — Inicio",
+    "brand": "Bishvileinu",
+    "aria_primary": "Navegación principal",
+    "home": "Inicio",
+    "about": "Acerca de",
+    "team": "Equipo",
+    "how": "Cómo funciona",
+    "stories": "Historias",
+    "join": "Unirse",
+    "contact": "Contacto",
+    "donate": "Donar",
+    "burger_label": "Abrir menú",
+    "drawer_label": "Menú de navegación"
+  },
+  "lang_menu": {
+    "label": "Elegir idioma",
+    "current_flag": "flag-es",
+    "current_code": "ES",
+    "he": "עברית",
+    "en": "English",
+    "fr": "Français",
+    "es": "Español"
+  },
+  "footer": {
+    "aria": "Pie de página",
+    "tagline": "La memoria construye vida — conectando el recuerdo de los héroes de nuestra nación con las comunidades judías de todo el mundo.",
+    "nav_aria": "Navegación del sitio",
+    "col_site": "El sitio",
+    "col_join": "Unirse y Donar",
+    "communities": "Comunidades y Organizaciones",
+    "families": "Familias e Iniciativas",
+    "donors": "Donantes y Socios",
+    "col_contact": "Contacto",
+    "wa": "WhatsApp · +972-50-600-0695",
+    "contact_form": "Formulario de contacto",
+    "copyright": "Bishvileinu · La memoria construye vida · Organización registrada (R.A. —)",
+    "memorial": "En su memoria.",
+    "brand2": "Bishvileinu."
+  },
+  "hero": {
+    "label": "Iniciativa",
+    "title": "<span class=\"c-green\">La memoria</span> <span class=\"c-gold\">construye</span> vida",
+    "lead": "Un puente entre la memoria en Israel y las comunidades judías de todo el mundo — vinculación, acompañamiento y crecimiento compartido nacido del dolor.",
+    "btn_join": "Únete al círculo",
+    "btn_how": "Cómo funciona"
+  },
+  "manifesto": {
+    "label": "Por ellos · Por nosotros",
+    "l1": "Lucharon <span class=\"c-gold\">por nosotros.</span>",
+    "l2": "Cayeron por <span style=\"color:var(--gold-light)\">nuestra existencia.</span>",
+    "l3": "Lo hicieron <span class=\"c-green\" style=\"color:#4fc98a\">por nosotros.</span>"
+  },
+  "stats": {
+    "label": "Desde el 7 de octubre",
+    "title": "El saldo de la guerra del Renacimiento",
+    "lead": "La guerra Espadas de Hierro dejó un duelo profundo — y con él, miles de historias de valentía, amor y la elección de crecer.",
+    "s1": "frentes de combate, con la ayuda de cientos de miles de reservistas",
+    "s2": "soldados de las FDI cayeron en la campaña por la supervivencia del Estado",
+    "s3": "israelíes cayeron durante la guerra Espadas de Hierro"
+  },
+  "alt": {
+    "sprout": "Un brote que crece de la tierra quemada — símbolo de crecimiento nacido del dolor",
+    "olive": "Un grupo plantando olivos — un proyecto de conmemoración"
+  },
+  "growth": {
+    "label": "En Israel",
+    "title": "De la ruptura, <span class=\"c-green\">la elección de crecer</span>",
+    "lead": "Muchas familias en duelo eligieron recordar y crear una vida nueva. Fundaron decenas de proyectos de memoria viva — cada uno haciendo de Israel un lugar mejor.",
+    "pill_agri": "🌾 Agricultura",
+    "pill_settle": "🏡 Asentamiento",
+    "pill_welfare": "🤝 Bienestar",
+    "pill_society": "👥 Sociedad",
+    "pill_security": "🛡️ Seguridad",
+    "pill_health": "❤️ Salud"
+  },
+  "who": {
+    "label": "Quiénes somos",
+    "title": "El puente entre <span class=\"c-green\">la memoria</span> y las comunidades",
+    "lead": "La iniciativa Bishvileinu nació para construir el puente entre los proyectos de conmemoración en Israel y las comunidades judías de todo el mundo.",
+    "c1_eyebrow": "Qué somos",
+    "c1_title": "Un órgano de enlace y acompañamiento",
+    "c1_text": "Vinculamos un proyecto de conmemoración con una comunidad, y acompañamos el lazo desde el primer encuentro hasta una alianza duradera.",
+    "c2_eyebrow": "Cómo",
+    "c2_title": "Vinculación · Acompañamiento · Subvención",
+    "c2_text": "Una conexión precisa, materiales educativos y la subvención del encuentro — para que la alianza comience y perdure.",
+    "c3_eyebrow": "Por qué importa",
+    "c3_title": "Resiliencia judía compartida",
+    "c3_text": "Fortalecemos la identidad y la resiliencia de las comunidades, y construimos puentes más sólidos entre el judaísmo mundial e Israel."
+  },
+  "impact": {
+    "label": "Tu impacto",
+    "title": "Una donación que <span class=\"c-grad\">se convierte en camino</span>",
+    "lead": "Cada cantidad toca a las personas directamente — así es cómo.",
+    "i1_text": "Un kit educativo para una clase sobre la historia de un caído",
+    "i2_text": "Un encuentro del recuerdo entre una familia en duelo y una comunidad",
+    "i3_text": "Subvencionar la visita de una delegación a un proyecto de conmemoración en Israel",
+    "btn_donate": "Donar",
+    "btn_tiers": "Niveles de alianza"
+  },
+  "router": {
+    "label": "Elige tu camino",
+    "title": "¿A qué <span class=\"c-gold\">camino</span> perteneces?",
+    "lead": "Cada público tiene su propio camino — elige y te guiaremos.",
+    "p1_title": "Comunidades y Organizaciones",
+    "p1_desc": "Escuelas, sinagogas, federaciones y organizaciones judías que desean unirse al camino y apadrinar un proyecto de conmemoración.",
+    "p1_cta": "Unirse como comunidad",
+    "p2_title": "Familias e Iniciativas",
+    "p2_desc": "Familias en duelo y proyectos de conmemoración que desean ampliar el círculo del recuerdo y conectarse con comunidades de todo el mundo.",
+    "p2_cta": "Presentar tu proyecto",
+    "p3_title": "Donantes y Socios",
+    "p3_desc": "Personas y entidades que desean apoyar y expandir la iniciativa a más comunidades en todo el mundo.",
+    "p3_cta": "Conocer la alianza"
+  },
+  "cta": {
+    "label": "No solo tus hijos, sino tus <strong>constructores</strong>",
+    "title": "Tendamos la mano, unámonos y ampliemos el círculo de la acción",
+    "text": "Por ellos y por nosotros — porque la memoria es el puente.",
+    "btn_join": "Únete al círculo",
+    "btn_donate": "Donar"
+  },
+  "ui": {
+    "arrow": "→"
+  },
+  "aria": {
+    "to_top": "Volver arriba",
+    "skip": "Saltar al contenido",
+    "reading": "Progreso de lectura"
+  }
+}

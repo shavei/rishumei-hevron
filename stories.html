@@ -39,6 +39,39 @@
 <div class="scroll-progress" role="progressbar" aria-label="התקדמות הקריאה"></div>
 
 <!-- @nav -->
+<svg class="flag-sprite" aria-hidden="true" width="0" height="0" style="position:absolute"><defs>
+  <symbol id="flag-il" viewBox="0 0 24 16">
+    <rect width="24" height="16" fill="#fff"/>
+    <rect y="2.4" width="24" height="1.7" fill="#0038b8"/>
+    <rect y="11.9" width="24" height="1.7" fill="#0038b8"/>
+    <path d="M12 5.4 L13.9 8.7 L10.1 8.7 Z" fill="none" stroke="#0038b8" stroke-width=".7"/>
+    <path d="M12 10.6 L13.9 7.3 L10.1 7.3 Z" fill="none" stroke="#0038b8" stroke-width=".7"/>
+  </symbol>
+  <symbol id="flag-us" viewBox="0 0 24 16">
+    <rect width="24" height="16" fill="#fff"/>
+    <g fill="#b22234">
+      <rect width="24" height="1.23"/><rect y="2.46" width="24" height="1.23"/>
+      <rect y="4.92" width="24" height="1.23"/><rect y="7.38" width="24" height="1.23"/>
+      <rect y="9.84" width="24" height="1.23"/><rect y="12.3" width="24" height="1.23"/>
+      <rect y="14.76" width="24" height="1.23"/>
+    </g>
+    <rect width="9.6" height="8.6" fill="#3c3b6e"/>
+    <g fill="#fff">
+      <circle cx="1.9" cy="1.7" r=".55"/><circle cx="4.8" cy="1.7" r=".55"/><circle cx="7.7" cy="1.7" r=".55"/>
+      <circle cx="3.35" cy="4.3" r=".55"/><circle cx="6.25" cy="4.3" r=".55"/>
+      <circle cx="1.9" cy="6.9" r=".55"/><circle cx="4.8" cy="6.9" r=".55"/><circle cx="7.7" cy="6.9" r=".55"/>
+    </g>
+  </symbol>
+  <symbol id="flag-fr" viewBox="0 0 24 16">
+    <rect width="24" height="16" fill="#fff"/>
+    <rect width="8" height="16" fill="#0055A4"/>
+    <rect x="16" width="8" height="16" fill="#EF4135"/>
+  </symbol>
+  <symbol id="flag-es" viewBox="0 0 24 16">
+    <rect width="24" height="16" fill="#AA151B"/>
+    <rect y="4" width="24" height="8" fill="#F1BF00"/>
+  </symbol>
+</defs></svg>
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a class="brand" href="index" aria-label="בשבילנו — ראשי">
@@ -63,7 +96,22 @@
       <a href="join">הצטרפות</a>
       <a href="contact">צור קשר</a>
     </nav>
-    <a href="donate" class="btn btn-gold btn-sm nav-cta">תרומה</a>
+    <div class="nav-actions">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-current" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="בחירת שפה">
+          <svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-il"></use></svg>
+          <span class="lang-code">עב</span>
+          <svg class="lang-caret" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="lang-menu" role="menu" aria-label="בחירת שפה">
+          <li role="none"><a role="menuitem" data-lang="he" href="/"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-il"></use></svg><span>עברית</span></a></li>
+          <li role="none"><a role="menuitem" data-lang="en" href="/en/"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-us"></use></svg><span>English</span></a></li>
+          <li role="none"><a role="menuitem" data-lang="fr" href="/fr/"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-fr"></use></svg><span>Français</span></a></li>
+          <li role="none"><a role="menuitem" data-lang="es" href="/es/"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-es"></use></svg><span>Español</span></a></li>
+        </ul>
+      </div>
+      <a href="donate" class="btn btn-gold btn-sm nav-cta">תרומה</a>
+    </div>
     <button class="nav-burger" id="burger" aria-label="פתח תפריט" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -78,6 +126,12 @@
   <a href="join">הצטרפות</a>
   <a href="contact">צור קשר</a>
   <a href="donate" class="btn btn-gold">תרומה</a>
+  <div class="lang-row" role="group" aria-label="בחירת שפה">
+    <a class="lang-chip" data-lang="he" href="/"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-il"></use></svg><span>עברית</span></a>
+    <a class="lang-chip" data-lang="en" href="/en/"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-us"></use></svg><span>English</span></a>
+    <a class="lang-chip" data-lang="fr" href="/fr/"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-fr"></use></svg><span>Français</span></a>
+    <a class="lang-chip" data-lang="es" href="/es/"><svg class="flag" viewBox="0 0 24 16" aria-hidden="true"><use href="#flag-es"></use></svg><span>Español</span></a>
+  </div>
 </div>
 <!-- /@nav -->
 

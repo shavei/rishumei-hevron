@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{meta.title}}</title>
+<meta name="description" content="{{meta.description}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{meta.og_locale}}">
+<meta property="og:title" content="{{meta.og_title}}">
+<meta property="og:description" content="{{meta.og_description}}">
+<meta property="og:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{{meta.canonical}}">
+<meta property="og:url" content="{{meta.canonical}}">
+<link rel="alternate" hreflang="he" href="https://bishvileinu.org.il/">
+<link rel="alternate" hreflang="en" href="https://bishvileinu.org.il/en/">
+<link rel="alternate" hreflang="fr" href="https://bishvileinu.org.il/fr/">
+<link rel="alternate" hreflang="es" href="https://bishvileinu.org.il/es/">
+<link rel="alternate" hreflang="x-default" href="https://bishvileinu.org.il/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{meta.og_title}}">
+<meta name="twitter:description" content="{{meta.og_description}}">
+<meta name="twitter:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<meta name="theme-color" content="#1F8A4D">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"בשבילנו","alternateName":"Bishvileinu","url":"https://bishvileinu.org.il/","logo":"https://bishvileinu.org.il/assets/icon-512.png","description":"{{jsonld_description}}","email":"nerya@betar.org.il","telephone":"+972-50-600-0695","areaServed":"Worldwide Jewish communities and Israel","knowsAbout":["הנצחת חללי צה\"ל","חיבור ישראל והתפוצות","חוסן יהודי","זיכרון בונה חיים"],"contactPoint":{"@type":"ContactPoint","email":"nerya@betar.org.il","contactType":"customer support","availableLanguage":["he","en","fr","es"]}}
+</script>
+<!-- Analytics (Plausible · ידידותי לפרטיות). להפעלה: פִּתחו חשבון, הסירו את ההערה והחליפו data-domain:
+<script defer data-domain="bishvileinu.org.il" src="https://plausible.io/js/script.js"></script>
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">{{aria.skip}}</a>
+<div class="aurora" aria-hidden="true"></div>
+<div class="fx-grain" aria-hidden="true"></div>
+<div class="scroll-progress" role="progressbar" aria-label="{{aria.reading}}"></div>
+
+<!-- ═══ NAV ═══ -->
+<!-- @nav -->
+<!-- /@nav -->
+
+<main id="main">
+
+  <!-- ═══ 1 · HERO ═══ -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <svg class="hero-logo" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+      <path d="M8 56 Q20 48 28 36 Q34 26 32 16" stroke="#16324B" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M32 16 Q26 8 20 10 Q24 18 32 16Z" fill="#1F8A4D"/>
+      <path d="M32 16 Q38 7 44 10 Q40 18 32 16Z" fill="#1F8A4D"/>
+      <path d="M32 10 L32 3" stroke="#C7912F" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M32 10 L39 5.5" stroke="#C7912F" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M32 10 L25 5.5" stroke="#C7912F" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M32 10 L44 8.5" stroke="#C7912F" stroke-width="2" stroke-linecap="round"/>
+      <path d="M32 10 L20 8.5" stroke="#C7912F" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span class="label">{{hero.label}}</span>
+    <h1 id="hero-h1" class="hero-title kinetic">
+      {{hero.title}}
+    </h1>
+    <p class="hero-lead">{{hero.lead}}</p>
+    <div class="hero-btns">
+      <a href="{{url.join}}" class="btn btn-primary btn-lg">{{hero.btn_join}}</a>
+      <a href="{{url.how}}" class="btn btn-ghost btn-lg">{{hero.btn_how}}</a>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- ═══ 2 · MANIFESTO ═══ -->
+  <section class="statement" aria-labelledby="manifesto-h">
+    <div class="statement-inner">
+      <p class="label label-light">{{manifesto.label}}</p>
+      <div class="statement-lines" id="manifesto-h">
+        <div class="statement-line kinetic">{{manifesto.l1}}</div>
+        <div class="statement-line kinetic">{{manifesto.l2}}</div>
+        <div class="statement-line kinetic">{{manifesto.l3}}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · REALITY / STATS ═══ -->
+  <section class="section" aria-labelledby="stats-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{stats.label}}</p>
+        <h2 id="stats-h" class="h-title">{{stats.title}}</h2>
+        <p class="h-lead">{{stats.lead}}</p>
+      </div>
+      <div class="stats stats-row">
+        <div class="stat reveal delay-1">
+          <span class="stat-n"><span class="count" data-target="7"></span></span>
+          <p class="stat-label">{{stats.s1}}</p>
+        </div>
+        <div class="stat reveal delay-2">
+          <span class="stat-n"><span class="prefix">+</span><span class="count" data-target="940"></span></span>
+          <p class="stat-label">{{stats.s2}}</p>
+        </div>
+        <div class="stat reveal delay-3">
+          <span class="stat-n"><span class="prefix">+</span><span class="count" data-target="2000"></span></span>
+          <p class="stat-label">{{stats.s3}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo band: sprout from scorched earth -->
+  <div class="photo-full reveal" aria-hidden="true">
+    <figure>
+      <div class="photoband" style="height:clamp(280px,40vw,500px);border-radius:0">
+        <picture><source type="image/avif" srcset="/assets/images/sprout-rebirth.avif 1536w, /assets/images/sprout-rebirth-768.avif 768w" sizes="(max-width:760px) 100vw, 1100px"><source type="image/webp" srcset="/assets/images/sprout-rebirth.webp 1536w, /assets/images/sprout-rebirth-768.webp 768w" sizes="(max-width:760px) 100vw, 1100px"><img src="/assets/images/sprout-rebirth.png" alt="{{alt.sprout}}" width="1440" height="810" loading="lazy" decoding="async"></picture>
+      </div>
+    </figure>
+  </div>
+
+  <!-- ═══ 4 · FROM RUPTURE, GROWTH ═══ -->
+  <section class="section section-mint" aria-labelledby="growth-h">
+    <div class="section-inner">
+      <div class="head reveal">
+        <p class="label">{{growth.label}}</p>
+        <h2 id="growth-h" class="h-title">{{growth.title}}</h2>
+        <p class="h-lead">{{growth.lead}}</p>
+      </div>
+      <div class="pills reveal" style="margin-block-end:2.5rem">
+        <span class="pill">{{growth.pill_agri}}</span>
+        <span class="pill">{{growth.pill_settle}}</span>
+        <span class="pill">{{growth.pill_welfare}}</span>
+        <span class="pill">{{growth.pill_society}}</span>
+        <span class="pill">{{growth.pill_security}}</span>
+        <span class="pill">{{growth.pill_health}}</span>
+      </div>
+      <div class="photoband reveal" style="height:clamp(260px,36vw,440px)">
+        <picture><source type="image/avif" srcset="/assets/images/olive-planting.avif"><source type="image/webp" srcset="/assets/images/olive-planting.webp"><img src="/assets/images/olive-planting.png" alt="{{alt.olive}}" width="922" height="922" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · WHO WE ARE ═══ -->
+  <section class="section" aria-labelledby="who-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{who.label}}</p>
+        <h2 id="who-h" class="h-title">{{who.title}}</h2>
+        <p class="h-lead">{{who.lead}}</p>
+      </div>
+      <div class="cols3">
+        <div class="card reveal delay-1" data-tilt>
+          <div class="card-icon" aria-hidden="true">🔗</div>
+          <p class="card-eyebrow">{{who.c1_eyebrow}}</p>
+          <h3>{{who.c1_title}}</h3>
+          <p>{{who.c1_text}}</p>
+        </div>
+        <div class="card reveal delay-2" data-tilt>
+          <div class="card-icon" aria-hidden="true">🛤️</div>
+          <p class="card-eyebrow">{{who.c2_eyebrow}}</p>
+          <h3>{{who.c2_title}}</h3>
+          <p>{{who.c2_text}}</p>
+        </div>
+        <div class="card reveal delay-3" data-tilt>
+          <div class="card-icon" aria-hidden="true">🌍</div>
+          <p class="card-eyebrow">{{who.c3_eyebrow}}</p>
+          <h3>{{who.c3_title}}</h3>
+          <p>{{who.c3_text}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5.5 · IMPACT (amount → outcome) ═══ -->
+  <section class="section section-sky" aria-labelledby="impact-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label label-gold">{{impact.label}}</p>
+        <h2 id="impact-h" class="h-title">{{impact.title}}</h2>
+        <p class="h-lead">{{impact.lead}}</p>
+      </div>
+      <div class="impact-row reveal">
+        <div class="impact-item"><span class="impact-amount">₪85</span><p class="impact-text">{{impact.i1_text}}</p></div>
+        <div class="impact-item"><span class="impact-amount">₪180</span><p class="impact-text">{{impact.i2_text}}</p></div>
+        <div class="impact-item"><span class="impact-amount">₪1,800</span><p class="impact-text">{{impact.i3_text}}</p></div>
+      </div>
+      <div class="cta-btns center-x mt-lg">
+        <a href="{{url.donate}}" class="btn btn-gold btn-lg">{{impact.btn_donate}}</a>
+        <a href="{{url.how}}#tiers" class="btn btn-ghost btn-lg">{{impact.btn_tiers}}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · PATH SELECTOR ═══ -->
+  <section class="section section-cream" aria-labelledby="router-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{router.label}}</p>
+        <h2 id="router-h" class="h-title">{{router.title}}</h2>
+        <p class="h-lead">{{router.lead}}</p>
+      </div>
+      <div class="cols3">
+        <a href="{{url.join_communities}}" class="path-card reveal delay-1" data-tilt>
+          <div class="path-icon" aria-hidden="true">🕍</div>
+          <div class="path-title">{{router.p1_title}}</div>
+          <p class="path-desc">{{router.p1_desc}}</p>
+          <div class="path-cta">{{router.p1_cta}} <span aria-hidden="true">{{ui.arrow}}</span></div>
+        </a>
+        <a href="{{url.join_families}}" class="path-card reveal delay-2" data-tilt>
+          <div class="path-icon" aria-hidden="true">🌱</div>
+          <div class="path-title">{{router.p2_title}}</div>
+          <p class="path-desc">{{router.p2_desc}}</p>
+          <div class="path-cta">{{router.p2_cta}} <span aria-hidden="true">{{ui.arrow}}</span></div>
+        </a>
+        <a href="{{url.join_donors}}" class="path-card reveal delay-3" data-tilt>
+          <div class="path-icon" aria-hidden="true">🤲</div>
+          <div class="path-title">{{router.p3_title}}</div>
+          <p class="path-desc">{{router.p3_desc}}</p>
+          <div class="path-cta">{{router.p3_cta}} <span aria-hidden="true">{{ui.arrow}}</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 7 · CLOSING CTA + PRAYER TEASER ═══ -->
+  <section class="cta-strip" aria-labelledby="cta-h">
+    <div class="cta-strip-inner">
+      <p class="label label-light" style="margin-block-end:.5rem">{{cta.label}}</p>
+      <h2 id="cta-h">{{cta.title}}</h2>
+      <p>{{cta.text}}</p>
+      <div class="cta-btns">
+        <a href="{{url.join}}" class="btn btn-gold btn-lg">{{cta.btn_join}}</a>
+        <a href="{{url.donate}}" class="btn btn-ghost-light btn-lg">{{cta.btn_donate}}</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<!-- @footer -->
+<!-- /@footer -->
+
+<button class="to-top" aria-label="{{aria.to_top}}">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast" role="alert" aria-live="polite"></div>
+
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="/assets/main.js"></script>
+</body>
+</html>

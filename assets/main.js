@@ -57,6 +57,70 @@ const _c = (function(){
   addEventListener('keydown', e => { if (e.key === 'Escape') toggle(false); });
 })();
 
+/* ── Language switcher ── */
+(function(){
+  const LANGS = ['he','en','fr','es'];
+  // Pages available per non-default language (he = default, all root pages).
+  const TRANSLATED = { en:['index'], fr:['index'], es:['index'] };
+
+  function currentLang(){
+    const seg = location.pathname.split('/').filter(Boolean)[0];
+    return LANGS.includes(seg) && seg !== 'he' ? seg : 'he';
+  }
+  function currentPage(){
+    const parts = location.pathname.split('/').filter(Boolean);
+    let last = parts[parts.length - 1] || 'index';
+    if (LANGS.includes(last) && last !== 'he') last = 'index'; // e.g. /en
+    return last.replace(/\.html$/, '') || 'index';
+  }
+  function hasTranslation(page, lang){
+    if (lang === 'he') return true;
+    return (TRANSLATED[lang] || []).includes(page);
+  }
+  function urlFor(lang, page){
+    if (lang === 'he') return page === 'index' ? '/' : '/' + page;
+    if (hasTranslation(page, lang)) return page === 'index' ? '/' + lang + '/' : '/' + lang + '/' + page;
+    return '/' + lang + '/'; // fall back to that language's home
+  }
+
+  const cur = currentLang();
+  const page = currentPage();
+
+  // Wire every switcher link (dropdown + drawer) for this page, mark the active one.
+  document.querySelectorAll('[data-lang]').forEach(a => {
+    const lang = a.dataset.lang;
+    a.setAttribute('href', urlFor(lang, page));
+    a.classList.toggle('active', lang === cur);
+    if (lang === cur) a.setAttribute('aria-current', 'true');
+    a.addEventListener('click', () => { try { localStorage.setItem('lang', lang); } catch(e){} });
+  });
+
+  // Dropdown open/close.
+  const sw  = document.getElementById('langSwitch');
+  const btn = document.getElementById('langBtn');
+  if (sw && btn){
+    const close = () => { sw.classList.remove('open'); btn.setAttribute('aria-expanded','false'); };
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = !sw.classList.contains('open');
+      sw.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', e => { if (!sw.contains(e.target)) close(); });
+    addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  }
+
+  // Remember preference: on the default home only, send returning visitors to
+  // their chosen language home (kept narrow to avoid surprises / SEO issues).
+  try {
+    const saved = localStorage.getItem('lang');
+    const onHome = page === 'index' && (location.pathname === '/' || location.pathname === '/index' || location.pathname === '/index.html');
+    if (saved && saved !== cur && cur === 'he' && onHome && hasTranslation('index', saved)) {
+      location.replace(urlFor(saved, 'index'));
+    }
+  } catch(e){}
+})();
+
 /* ── Scroll Reveal (IO fallback) ── */
 (function(){
   if (CSS.supports('animation-timeline','view()')) return;
@@ -106,12 +170,13 @@ const _c = (function(){
     const target = +el.dataset.target;
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
-    if (REDUCED) { el.textContent = prefix + target.toLocaleString('he-IL') + suffix; return; }
+    const loc = document.documentElement.lang || 'he-IL';
+    if (REDUCED) { el.textContent = prefix + target.toLocaleString(loc) + suffix; return; }
     const dur = 1800, start = performance.now();
     function ease(t){ return t<.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
     function frame(now){
       const p = Math.min((now-start)/dur,1);
-      el.textContent = prefix + Math.round(ease(p)*target).toLocaleString('he-IL') + suffix;
+      el.textContent = prefix + Math.round(ease(p)*target).toLocaleString(loc) + suffix;
       if (p < 1) requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
