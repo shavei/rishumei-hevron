@@ -3,7 +3,7 @@
    RTL Hebrew, light-only, native CSS animations, no build
    ================================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap');
+/* Fonts are preconnected + loaded via <link> in each page <head> (faster than @import). */
 
 /* ── View Transitions ── */
 @view-transition { navigation: auto; }
@@ -23,7 +23,7 @@
 
   --ink:        #16324B;
   --ink-soft:   #33506B;
-  --muted:      #7A7668;
+  --muted:      #6B6657;
   --gold:       #C7912F;
   --gold-light: #E4B96A;
   --green:      #1F8A4D;
@@ -703,6 +703,18 @@ ul, ol { list-style: none; }
 .to-top:hover { transform:translateY(-3px); }
 .toast { position:fixed; inset-block-end:2rem; inset-inline-start:50%; transform:translateX(50%) translateY(20px); background:var(--green); color:#fff; font-family:var(--display); font-weight:700; padding:.85rem 1.75rem; border-radius:var(--r-pill); box-shadow:var(--sh-g); opacity:0; transition:opacity .35s,transform .35s; pointer-events:none; z-index:9000; }
 .toast.show { opacity:1; transform:translateX(50%) translateY(0); }
+
+/* ── A11y & polish ── */
+:target { scroll-margin-block-start: calc(var(--nav-h) + 1.25rem); }
+.btn-ghost-light:focus-visible { outline-color: #fff; }
+/* hover lift for cards that were previously static */
+.side, .context-box, .part-side, .info-card, .outcome {
+  transition: transform .3s var(--ease-out), box-shadow .3s, border-color .3s;
+}
+.side:hover, .context-box:hover, .part-side:hover, .info-card:hover { transform: translateY(-3px); box-shadow: var(--sh); }
+.outcome:hover { transform: translateY(-2px); box-shadow: var(--sh); }
+/* image placeholder background — avoids white flash + cuts layout shift */
+.photoband, .team-lead-photo, .photo-full figure, .jcard img { background: var(--mint); }
 
 /* ======================
    RESPONSIVE
