@@ -67,7 +67,6 @@
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html {
-  direction: rtl;
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
@@ -608,7 +607,7 @@ ul, ol { list-style: none; }
 .form-group input, .form-group select, .form-group textarea {
   width:100%; padding:.75rem 1rem; border:1.5px solid var(--line); border-radius:var(--r-sm);
   font:inherit; font-size:1rem; color:var(--ink); background:var(--cream-2);
-  transition:border-color .2s, box-shadow .2s; direction:rtl;
+  transition:border-color .2s, box-shadow .2s;
 }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
   outline:none; border-color:var(--green);
