@@ -144,6 +144,9 @@
     "btn_join": "Join the circle",
     "btn_donate": "Donate"
   },
+  "ui": {
+    "arrow": "→"
+  },
   "aria": {
     "to_top": "Back to top",
     "skip": "Skip to content",

@@ -557,7 +557,7 @@ ul, ol { list-style: none; }
 .faq { max-width:760px; margin-inline:auto; }
 .faq-item { border-bottom:1px solid var(--line); overflow:hidden; }
 .faq-q {
-  width:100%; text-align:right; padding:1.25rem 0;
+  width:100%; text-align:start; padding:1.25rem 0;
   font-family:var(--display); font-size:1.05rem; font-weight:700; color:var(--ink);
   display:flex; justify-content:space-between; align-items:center; gap:1rem;
 }
@@ -677,7 +677,7 @@ ul, ol { list-style: none; }
 /* ── Closing illustration ── */
 .closing-illo { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
 .closing-illo img { border-radius:var(--r-img); box-shadow:var(--sh-lg); width:100%; }
-.closing-text .quote-sacred { text-align:right; padding-block:0; }
+.closing-text .quote-sacred { text-align:start; padding-block:0; }
 
 /* ── Context/solidarity split ── */
 .context-split { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
@@ -781,7 +781,7 @@ ul, ol { list-style: none; }
 /* ── Donate / Give ── */
 .give-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; }
 .give-card {
-  text-align:right; background:var(--card); border:1.5px solid var(--line);
+  text-align:start; background:var(--card); border:1.5px solid var(--line);
   border-radius:var(--r-sm); padding:1.4rem 1.5rem; cursor:pointer;
   display:flex; flex-direction:column; gap:.35rem;
   transition:transform .2s var(--ease-out), box-shadow .2s, border-color .2s, background .2s;
@@ -857,8 +857,10 @@ ul, ol { list-style: none; }
   .tier.feat { transform:none; }
 }
 @media (max-width:1024px) {
-  .nav-links, .nav-actions { display:none; }
-  .nav-burger { display:flex; }
+  .nav-links { display:none; }
+  .nav-cta { display:none; }                 /* donate lives in the drawer on mobile */
+  .nav-actions { margin-inline-start:auto; }  /* keep the language switcher visible in the top bar */
+  .nav-burger { display:flex; margin-inline-start:.35rem; }
 }
 @media (max-width:640px) {
   .cols2,.cols3,.sides,.steps { grid-template-columns:1fr; }
