@@ -1,0 +1,152 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "meta": {
+    "title": "Bishvileinu — Memory Builds Life",
+    "description": "Bishvileinu connects Jewish communities around the world with memorial initiatives in Israel founded by the bereaved families of those who fell in the Swords of Iron War. Matching, guidance, shared growth.",
+    "og_locale": "en_US",
+    "og_title": "Bishvileinu — Memory Builds Life",
+    "og_description": "Bridging remembrance in Israel with communities worldwide — a shared path of memory, resilience and growth.",
+    "canonical": "https://bishvileinu.org.il/en/"
+  },
+  "jsonld_description": "An initiative connecting the remembrance of those who fell in the Swords of Iron War with Jewish communities worldwide — matching, guidance and shared growth.",
+  "url": {
+    "home": "/en/",
+    "about": "/about",
+    "team": "/team",
+    "how": "/how",
+    "stories": "/stories",
+    "join": "/join",
+    "contact": "/contact",
+    "donate": "/donate",
+    "join_communities": "/join#communities",
+    "join_families": "/join#families",
+    "join_donors": "/join#donors"
+  },
+  "nav": {
+    "aria_home": "Bishvileinu — Home",
+    "brand": "Bishvileinu",
+    "aria_primary": "Main navigation",
+    "home": "Home",
+    "about": "About",
+    "team": "Team",
+    "how": "How It Works",
+    "stories": "Stories",
+    "join": "Join",
+    "contact": "Contact",
+    "donate": "Donate",
+    "burger_label": "Open menu",
+    "drawer_label": "Navigation menu"
+  },
+  "lang_menu": {
+    "label": "Choose language",
+    "current_flag": "flag-us",
+    "current_code": "EN",
+    "he": "עברית",
+    "en": "English",
+    "fr": "Français",
+    "es": "Español"
+  },
+  "footer": {
+    "aria": "Footer",
+    "tagline": "Memory builds life — connecting the remembrance of our nation's heroes with Jewish communities around the world.",
+    "nav_aria": "Site navigation",
+    "col_site": "Site",
+    "col_join": "Join & Donate",
+    "communities": "Communities & Organizations",
+    "families": "Families & Initiatives",
+    "donors": "Donors & Partners",
+    "col_contact": "Contact",
+    "wa": "WhatsApp · +972-50-600-0695",
+    "contact_form": "Contact form",
+    "copyright": "Bishvileinu · Memory Builds Life · Registered nonprofit (R.A. —)",
+    "memorial": "In their memory.",
+    "brand2": "Bishvileinu."
+  },
+  "hero": {
+    "label": "Initiative",
+    "title": "<span class=\"c-green\">Memory</span> <span class=\"c-gold\">builds</span> life",
+    "lead": "A bridge between remembrance in Israel and Jewish communities worldwide — matching, guidance, and shared growth out of pain.",
+    "btn_join": "Join the circle",
+    "btn_how": "How it works"
+  },
+  "manifesto": {
+    "label": "For them · For us",
+    "l1": "They fought <span class=\"c-gold\">for us.</span>",
+    "l2": "They fell for <span style=\"color:var(--gold-light)\">our existence.</span>",
+    "l3": "They did it <span class=\"c-green\" style=\"color:#4fc98a\">for our sake.</span>"
+  },
+  "stats": {
+    "label": "Since October 7th",
+    "title": "The toll of the War of Revival",
+    "lead": "The Swords of Iron War left deep bereavement — and with it, thousands of stories of courage, love, and the choice to grow.",
+    "s1": "fronts of fighting, with the help of hundreds of thousands of reserve soldiers",
+    "s2": "IDF soldiers fell in the campaign for the survival of the state",
+    "s3": "Israelis fell during the Swords of Iron War"
+  },
+  "alt": {
+    "sprout": "A sprout growing from scorched earth — a symbol of growth out of pain",
+    "olive": "A group planting olive trees — a memorial initiative"
+  },
+  "growth": {
+    "label": "In Israel",
+    "title": "Out of the rupture, <span class=\"c-green\">the choice to grow</span>",
+    "lead": "Many bereaved families chose to remember and to create new life. They founded dozens of living-memory initiatives — each making Israel a better place.",
+    "pill_agri": "🌾 Agriculture",
+    "pill_settle": "🏡 Settlement",
+    "pill_welfare": "🤝 Welfare",
+    "pill_society": "👥 Community",
+    "pill_security": "🛡️ Security",
+    "pill_health": "❤️ Health"
+  },
+  "who": {
+    "label": "Who we are",
+    "title": "The bridge between <span class=\"c-green\">memory</span> and communities",
+    "lead": "The Bishvileinu initiative was created to build the bridge between memorial projects in Israel and Jewish communities around the world.",
+    "c1_eyebrow": "What we are",
+    "c1_title": "A connecting and guiding body",
+    "c1_text": "We match a memorial initiative with a community, and accompany the bond from the first meeting to a lasting partnership.",
+    "c2_eyebrow": "How",
+    "c2_title": "Matching · Guidance · Subsidy",
+    "c2_text": "Precise connection, educational materials, and subsidy of the encounter — so the partnership begins and endures.",
+    "c3_eyebrow": "Why it matters",
+    "c3_title": "Shared Jewish resilience",
+    "c3_text": "We strengthen the identity and resilience of communities, and build stronger bridges between world Jewry and Israel."
+  },
+  "impact": {
+    "label": "Your impact",
+    "title": "A gift that <span class=\"c-grad\">becomes a path</span>",
+    "lead": "Every amount touches people directly — here's how.",
+    "i1_text": "An educational kit for a class on the story of a fallen soldier",
+    "i2_text": "A memorial encounter between a bereaved family and a community",
+    "i3_text": "Subsidizing a delegation's visit to a memorial initiative in Israel",
+    "btn_donate": "Donate",
+    "btn_tiers": "Partnership tiers"
+  },
+  "router": {
+    "label": "Choose your path",
+    "title": "Which <span class=\"c-gold\">path</span> do you belong to?",
+    "lead": "Every audience has its own path — choose, and we'll lead the way.",
+    "p1_title": "Communities & Organizations",
+    "p1_desc": "Schools, synagogues, federations and Jewish organizations that want to join the path and adopt a memorial initiative.",
+    "p1_cta": "Join as a community",
+    "p2_title": "Families & Initiatives",
+    "p2_desc": "Bereaved families and memorial initiatives that want to widen the circle of remembrance and connect with communities worldwide.",
+    "p2_cta": "Share your initiative",
+    "p3_title": "Donors & Partners",
+    "p3_desc": "Individuals and organizations that want to support and expand the initiative to more communities around the world.",
+    "p3_cta": "Hear about partnership"
+  },
+  "cta": {
+    "label": "Not only your children — but your <strong>builders</strong>",
+    "title": "Let us reach out, join in, and widen the circle of action",
+    "text": "For them and for us — because memory is the bridge.",
+    "btn_join": "Join the circle",
+    "btn_donate": "Donate"
+  },
+  "aria": {
+    "to_top": "Back to top",
+    "skip": "Skip to content",
+    "reading": "Reading progress"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "lang": "fr",
+  "dir": "ltr",
+  "meta": {
+    "title": "Bishvileinu — La mémoire bâtit la vie",
+    "description": "Bishvileinu relie les communautés juives du monde entier aux projets de commémoration en Israël, fondés par les familles endeuillées des soldats tombés pendant la guerre Épées de fer. Mise en relation, accompagnement, croissance partagée.",
+    "og_locale": "fr_FR",
+    "og_title": "Bishvileinu — La mémoire bâtit la vie",
+    "og_description": "Un pont entre la mémoire en Israël et les communautés du monde entier — un chemin commun de souvenir, de résilience et de croissance.",
+    "canonical": "https://bishvileinu.org.il/fr/"
+  },
+  "jsonld_description": "Une initiative reliant la mémoire des soldats tombés pendant la guerre Épées de fer aux communautés juives du monde entier — mise en relation, accompagnement et croissance partagée.",
+  "url": {
+    "home": "/fr/",
+    "about": "/about",
+    "team": "/team",
+    "how": "/how",
+    "stories": "/stories",
+    "join": "/join",
+    "contact": "/contact",
+    "donate": "/donate",
+    "join_communities": "/join#communities",
+    "join_families": "/join#families",
+    "join_donors": "/join#donors"
+  },
+  "nav": {
+    "aria_home": "Bishvileinu — Accueil",
+    "brand": "Bishvileinu",
+    "aria_primary": "Navigation principale",
+    "home": "Accueil",
+    "about": "À propos",
+    "team": "Équipe",
+    "how": "Comment ça marche",
+    "stories": "Histoires",
+    "join": "Rejoindre",
+    "contact": "Contact",
+    "donate": "Faire un don",
+    "burger_label": "Ouvrir le menu",
+    "drawer_label": "Menu de navigation"
+  },
+  "lang_menu": {
+    "label": "Choisir la langue",
+    "current_flag": "flag-fr",
+    "current_code": "FR",
+    "he": "עברית",
+    "en": "English",
+    "fr": "Français",
+    "es": "Español"
+  },
+  "footer": {
+    "aria": "Pied de page",
+    "tagline": "La mémoire bâtit la vie — relier le souvenir des héros de notre nation aux communautés juives du monde entier.",
+    "nav_aria": "Navigation du site",
+    "col_site": "Le site",
+    "col_join": "Rejoindre & Faire un don",
+    "communities": "Communautés & Organisations",
+    "families": "Familles & Projets",
+    "donors": "Donateurs & Partenaires",
+    "col_contact": "Contact",
+    "wa": "WhatsApp · +972-50-600-0695",
+    "contact_form": "Formulaire de contact",
+    "copyright": "Bishvileinu · La mémoire bâtit la vie · Association enregistrée (R.A. —)",
+    "memorial": "À leur mémoire.",
+    "brand2": "Bishvileinu."
+  },
+  "hero": {
+    "label": "Initiative",
+    "title": "<span class=\"c-green\">La mémoire</span> <span class=\"c-gold\">bâtit</span> la vie",
+    "lead": "Un pont entre la mémoire en Israël et les communautés juives du monde entier — mise en relation, accompagnement et croissance partagée née de la douleur.",
+    "btn_join": "Rejoindre le cercle",
+    "btn_how": "Comment ça marche"
+  },
+  "manifesto": {
+    "label": "Pour eux · Pour nous",
+    "l1": "Ils ont combattu <span class=\"c-gold\">pour nous.</span>",
+    "l2": "Ils sont tombés pour <span style=\"color:var(--gold-light)\">notre existence.</span>",
+    "l3": "Ils l'ont fait <span class=\"c-green\" style=\"color:#4fc98a\">pour nous.</span>"
+  },
+  "stats": {
+    "label": "Depuis le 7 octobre",
+    "title": "Le bilan de la guerre de la Renaissance",
+    "lead": "La guerre Épées de fer a laissé un deuil profond — et avec lui, des milliers d'histoires de courage, d'amour et du choix de grandir.",
+    "s1": "fronts de combat, avec l'aide de centaines de milliers de réservistes",
+    "s2": "soldats de Tsahal sont tombés au combat pour la survie de l'État",
+    "s3": "Israéliens sont tombés durant la guerre Épées de fer"
+  },
+  "alt": {
+    "sprout": "Une pousse jaillissant d'une terre brûlée — symbole de croissance née de la douleur",
+    "olive": "Un groupe plantant des oliviers — un projet de commémoration"
+  },
+  "growth": {
+    "label": "En Israël",
+    "title": "De la rupture, <span class=\"c-green\">le choix de grandir</span>",
+    "lead": "De nombreuses familles endeuillées ont choisi de se souvenir et de créer une vie nouvelle. Elles ont fondé des dizaines de projets de mémoire vivante — chacun rendant Israël meilleur.",
+    "pill_agri": "🌾 Agriculture",
+    "pill_settle": "🏡 Implantation",
+    "pill_welfare": "🤝 Solidarité",
+    "pill_society": "👥 Société",
+    "pill_security": "🛡️ Sécurité",
+    "pill_health": "❤️ Santé"
+  },
+  "who": {
+    "label": "Qui sommes-nous",
+    "title": "Le pont entre <span class=\"c-green\">la mémoire</span> et les communautés",
+    "lead": "L'initiative Bishvileinu a été créée pour bâtir le pont entre les projets de commémoration en Israël et les communautés juives du monde entier.",
+    "c1_eyebrow": "Ce que nous sommes",
+    "c1_title": "Un organe de liaison et d'accompagnement",
+    "c1_text": "Nous mettons en relation un projet de commémoration avec une communauté, et accompagnons le lien dès la première rencontre jusqu'à un partenariat durable.",
+    "c2_eyebrow": "Comment",
+    "c2_title": "Mise en relation · Accompagnement · Subvention",
+    "c2_text": "Un lien précis, des supports pédagogiques et une subvention de la rencontre — pour que le partenariat commence et perdure.",
+    "c3_eyebrow": "Pourquoi c'est important",
+    "c3_title": "Une résilience juive partagée",
+    "c3_text": "Nous renforçons l'identité et la résilience des communautés, et bâtissons des ponts plus solides entre le judaïsme mondial et Israël."
+  },
+  "impact": {
+    "label": "Votre impact",
+    "title": "Un don qui <span class=\"c-grad\">devient un chemin</span>",
+    "lead": "Chaque montant touche directement les personnes — voici comment.",
+    "i1_text": "Un kit pédagogique pour une classe sur le parcours d'un soldat tombé",
+    "i2_text": "Une rencontre du souvenir entre une famille endeuillée et une communauté",
+    "i3_text": "Le financement de la visite d'une délégation à un projet de commémoration en Israël",
+    "btn_donate": "Faire un don",
+    "btn_tiers": "Niveaux de partenariat"
+  },
+  "router": {
+    "label": "Choisissez votre chemin",
+    "title": "À quel <span class=\"c-gold\">parcours</span> appartenez-vous ?",
+    "lead": "Chaque public a son propre chemin — choisissez, et nous vous guiderons.",
+    "p1_title": "Communautés & Organisations",
+    "p1_desc": "Écoles, synagogues, fédérations et organisations juives qui souhaitent rejoindre le chemin et parrainer un projet de commémoration.",
+    "p1_cta": "Rejoindre en tant que communauté",
+    "p2_title": "Familles & Projets",
+    "p2_desc": "Familles endeuillées et projets de commémoration qui souhaitent élargir le cercle du souvenir et se relier aux communautés du monde entier.",
+    "p2_cta": "Présenter votre projet",
+    "p3_title": "Donateurs & Partenaires",
+    "p3_desc": "Particuliers et organismes qui souhaitent soutenir et étendre l'initiative à davantage de communautés dans le monde.",
+    "p3_cta": "En savoir plus sur le partenariat"
+  },
+  "cta": {
+    "label": "Non pas seulement tes enfants, mais tes <strong>bâtisseurs</strong>",
+    "title": "Tendons la main, rejoignons et élargissons le cercle de l'action",
+    "text": "Pour eux et pour nous — car la mémoire est le pont.",
+    "btn_join": "Rejoindre le cercle",
+    "btn_donate": "Faire un don"
+  },
+  "aria": {
+    "to_top": "Retour en haut",
+    "skip": "Aller au contenu",
+    "reading": "Progression de la lecture"
+  }
+}
