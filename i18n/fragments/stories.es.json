@@ -1,0 +1,25 @@
+{
+  "stories": {
+    "title": "Historias — Bishvileinu · La memoria construye vida",
+    "description": "El muro vivo de la memoria de Bishvileinu — las historias de los caídos y los proyectos de conmemoración fundados en su memoria. Pronto se revelará aquí el archivo completo.",
+    "og_title": "Historias — Bishvileinu",
+    "og_description": "El muro vivo de la memoria — las historias de los caídos y los proyectos de conmemoración fundados en su memoria.",
+    "canonical": "https://bishvileinu.org.il/es/stories",
+    "hero_label": "Historias",
+    "hero_title": "El muro <span class=\"c-green\">vivo</span> de la memoria",
+    "hero_lead": "Detrás de cada proyecto de conmemoración hay una persona, una historia y unos valores. Aquí se desplegarán las historias de los caídos y los proyectos fundados en su memoria.",
+    "concept_label": "Lo que se revelará aquí",
+    "concept_title": "De una historia — <span class=\"c-green\">a un camino</span>",
+    "concept_lead": "Cada historia es una puerta. Reunimos las historias de los caídos y los proyectos de conmemoración vivos que surgieron de ellas — agricultura, educación, asentamiento, bienestar y salud — para que las comunidades de todo el mundo puedan conocerlos, adoptarlos y continuarlos.",
+    "concept_alt": "Un muro con fotografías e historias de soldados caídos",
+    "soon_label": "Próximamente",
+    "soon_title": "El archivo <span class=\"c-gold\">se está construyendo ahora</span>",
+    "soon_lead": "Estamos reuniendo con cuidado las historias y los proyectos, junto con las familias. Pronto se revelará aquí un archivo completo — filtrado por ámbito — del que cada comunidad podrá elegir el proyecto más cercano a su corazón.",
+    "soon_btn_families": "¿Has fundado un proyecto? Cuéntanos",
+    "soon_btn_communities": "Una comunidad que quiere adoptar",
+    "cta_title": "Cada caído merece que su historia siga viva",
+    "cta_text": "Ayúdanos a ampliar el círculo del recuerdo — únete, adopta o dona.",
+    "cta_btn_join": "Únete al círculo",
+    "cta_btn_donate": "Donar"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "stories": {
+    "title": "Histoires — Bishvileinu · La mémoire bâtit la vie",
+    "description": "Le mur vivant de la mémoire de Bishvileinu — les histoires des soldats tombés et les projets de commémoration fondés en leur mémoire. L'ensemble du recueil sera bientôt dévoilé ici.",
+    "og_title": "Histoires — Bishvileinu",
+    "og_description": "Le mur vivant de la mémoire — les histoires des soldats tombés et les projets de commémoration fondés en leur mémoire.",
+    "canonical": "https://bishvileinu.org.il/fr/stories",
+    "hero_label": "Histoires",
+    "hero_title": "Le mur <span class=\"c-green\">vivant</span> de la mémoire",
+    "hero_lead": "Derrière chaque projet de commémoration se trouve une personne, une histoire et des valeurs. Ici se déploieront les histoires des soldats tombés et des projets fondés en leur mémoire.",
+    "concept_label": "Ce qui sera dévoilé ici",
+    "concept_title": "D'une histoire — <span class=\"c-green\">à un chemin</span>",
+    "concept_lead": "Chaque histoire est une porte. Nous rassemblons les histoires des soldats tombés et les projets de commémoration vivants qui en sont nés — agriculture, éducation, implantation, action sociale et santé — afin que les communautés du monde entier puissent les découvrir, les adopter et les poursuivre.",
+    "concept_alt": "Un mur avec des photographies et des histoires de soldats tombés",
+    "soon_label": "Bientôt",
+    "soon_title": "Le recueil <span class=\"c-gold\">se construit en ce moment</span>",
+    "soon_lead": "Nous rassemblons avec soin les histoires et les projets, avec les familles. Bientôt, un recueil complet sera dévoilé ici — filtré par domaine — dans lequel chaque communauté pourra choisir le projet le plus proche de son cœur.",
+    "soon_btn_families": "Vous avez fondé un projet ? Parlez-nous-en",
+    "soon_btn_communities": "Une communauté qui veut adopter",
+    "cta_title": "Chaque soldat tombé mérite que son histoire vive",
+    "cta_text": "Aidez-nous à élargir le cercle de la mémoire — rejoignez, adoptez ou faites un don.",
+    "cta_btn_join": "Rejoindre le cercle",
+    "cta_btn_donate": "Faire un don"
+  }
+}

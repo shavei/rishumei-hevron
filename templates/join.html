@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{join.title}}</title>
+<meta name="description" content="{{join.meta_description}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{meta.og_locale}}">
+<meta property="og:title" content="{{join.og_title}}">
+<meta property="og:description" content="{{join.og_description}}">
+<meta property="og:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{{join.canonical}}">
+<meta property="og:url" content="{{join.canonical}}">
+<link rel="alternate" hreflang="he" href="https://bishvileinu.org.il/join">
+<link rel="alternate" hreflang="en" href="https://bishvileinu.org.il/en/join">
+<link rel="alternate" hreflang="fr" href="https://bishvileinu.org.il/fr/join">
+<link rel="alternate" hreflang="es" href="https://bishvileinu.org.il/es/join">
+<link rel="alternate" hreflang="x-default" href="https://bishvileinu.org.il/join">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{join.og_title}}">
+<meta name="twitter:description" content="{{join.og_description}}">
+<meta name="twitter:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<meta name="theme-color" content="#1F8A4D">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"בשבילנו","alternateName":"Bishvileinu","url":"https://bishvileinu.org.il/","logo":"https://bishvileinu.org.il/assets/icon-512.png","description":"{{jsonld_description}}","email":"nerya@betar.org.il","telephone":"+972-50-600-0695","areaServed":"Worldwide Jewish communities and Israel","knowsAbout":["הנצחת חללי צה\"ל","חיבור ישראל והתפוצות","חוסן יהודי","זיכרון בונה חיים"],"contactPoint":{"@type":"ContactPoint","email":"nerya@betar.org.il","contactType":"customer support","availableLanguage":["he","en","fr","es"]}}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "{{join.faq_q1}}", "acceptedAnswer": {"@type": "Answer", "text": "{{join.faq_a1}}"}}, {"@type": "Question", "name": "{{join.faq_q2}}", "acceptedAnswer": {"@type": "Answer", "text": "{{join.faq_a2}}"}}, {"@type": "Question", "name": "{{join.faq_q3}}", "acceptedAnswer": {"@type": "Answer", "text": "{{join.faq_a3}}"}}, {"@type": "Question", "name": "{{join.faq_q4}}", "acceptedAnswer": {"@type": "Answer", "text": "{{join.faq_a4}}"}}, {"@type": "Question", "name": "{{join.faq_q5}}", "acceptedAnswer": {"@type": "Answer", "text": "{{join.faq_a5}}"}}, {"@type": "Question", "name": "{{join.faq_q6}}", "acceptedAnswer": {"@type": "Answer", "text": "{{join.faq_a6}}"}}, {"@type": "Question", "name": "{{join.faq_q7}}", "acceptedAnswer": {"@type": "Answer", "text": "{{join.faq_a7}}"}}]}
+</script>
+<!-- Analytics (Plausible · ידידותי לפרטיות). להפעלה: פִּתחו חשבון, הסירו את ההערה והחליפו data-domain:
+<script defer data-domain="bishvileinu.org.il" src="https://plausible.io/js/script.js"></script>
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">{{aria.skip}}</a>
+<div class="aurora" aria-hidden="true"></div>
+<div class="fx-grain" aria-hidden="true"></div>
+<div class="scroll-progress" role="progressbar" aria-label="{{aria.reading}}"></div>
+
+<!-- ═══ NAV ═══ -->
+<!-- @nav -->
+<!-- /@nav -->
+
+<main id="main">
+
+  <!-- ═══ 1 · PAGE HERO ═══ -->
+  <section class="page-hero" aria-labelledby="join-h1">
+    <p class="label">{{join.hero_label}}</p>
+    <h1 id="join-h1" class="h-title kinetic">{{join.hero_title}}</h1>
+    <p class="h-lead">{{join.hero_lead}}</p>
+  </section>
+
+  <!-- ═══ 2 · WHO TAKES PART ═══ -->
+  <section class="section" aria-labelledby="who-part-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{join.who_label}}</p>
+        <h2 id="who-part-h" class="h-title">{{join.who_title}}</h2>
+      </div>
+      <div class="participation">
+        <div class="part-side reveal delay-1">
+          <h3>{{join.who_partner_title}}</h3>
+          <div class="part-tags">
+            <span class="part-tag">{{join.who_partner_tag1}}</span>
+            <span class="part-tag">{{join.who_partner_tag2}}</span>
+            <span class="part-tag">{{join.who_partner_tag3}}</span>
+            <span class="part-tag">{{join.who_partner_tag4}}</span>
+            <span class="part-tag">{{join.who_partner_tag5}}</span>
+          </div>
+        </div>
+        <div class="part-side reveal delay-2">
+          <h3>{{join.who_giving_title}}</h3>
+          <p style="color:var(--muted);margin-block-end:1rem;font-size:.93rem">{{join.who_giving_text}}</p>
+          <p style="color:var(--muted);font-size:.85rem;font-style:italic">{{join.who_giving_future}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · THREE AUDIENCE TRACKS ═══ -->
+  <section class="section section-mint" aria-labelledby="tracks-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{join.tracks_label}}</p>
+        <h2 id="tracks-h" class="h-title">{{join.tracks_title}}</h2>
+      </div>
+
+      <div id="communities" class="audience-track reveal" style="scroll-margin-top:calc(var(--nav-h) + 1rem)">
+        <p class="card-eyebrow">{{join.track_community_eyebrow}}</p>
+        <h3>{{join.track_community_title}}</h3>
+        <p>{{join.track_community_text}}</p>
+        <div class="audience-ctas">
+          <button class="btn btn-primary btn-lg" data-contact="mail" data-subject="{{join.mail_subject_community}}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            {{join.btn_mail_community}}
+          </button>
+          <button class="btn btn-whatsapp btn-lg" data-contact="wa" data-text="{{join.wa_text_community}}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.113 1.524 5.843L.057 23.18c-.073.35.2.684.558.655l5.564-.484A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.956 0-3.789-.569-5.328-1.548l-.376-.226-3.875.336.366-3.735-.246-.389A9.966 9.966 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            {{join.btn_wa_community}}
+          </button>
+        </div>
+      </div>
+
+      <div id="families" class="audience-track reveal" style="scroll-margin-top:calc(var(--nav-h) + 1rem)">
+        <p class="card-eyebrow">{{join.track_family_eyebrow}}</p>
+        <h3>{{join.track_family_title}}</h3>
+        <p>{{join.track_family_text}}</p>
+        <div class="audience-ctas">
+          <button class="btn btn-primary btn-lg" data-contact="mail" data-subject="{{join.mail_subject_family}}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            {{join.btn_mail_family}}
+          </button>
+          <button class="btn btn-whatsapp btn-lg" data-contact="wa" data-text="{{join.wa_text_family}}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.113 1.524 5.843L.057 23.18c-.073.35.2.684.558.655l5.564-.484A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.956 0-3.789-.569-5.328-1.548l-.376-.226-3.875.336.366-3.735-.246-.389A9.966 9.966 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            {{join.btn_wa_family}}
+          </button>
+        </div>
+      </div>
+
+      <div id="donors" class="audience-track reveal" style="scroll-margin-top:calc(var(--nav-h) + 1rem)">
+        <p class="card-eyebrow">{{join.track_donor_eyebrow}}</p>
+        <h3>{{join.track_donor_title}}</h3>
+        <p>{{join.track_donor_text}}</p>
+        <div class="audience-ctas">
+          <button class="btn btn-gold btn-lg" data-contact="mail" data-subject="{{join.mail_subject_donor}}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            {{join.btn_mail_donor}}
+          </button>
+          <button class="btn btn-whatsapp btn-lg" data-contact="wa" data-text="{{join.wa_text_donor}}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.113 1.524 5.843L.057 23.18c-.073.35.2.684.558.655l5.564-.484A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.956 0-3.789-.569-5.328-1.548l-.376-.226-3.875.336.366-3.735-.246-.389A9.966 9.966 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            {{join.btn_wa_donor}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · TIER RECAP ═══ -->
+  <section class="section section-cream" aria-labelledby="tier-recap-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{join.tier_label}}</p>
+        <h2 id="tier-recap-h" class="h-title">{{join.tier_title}}</h2>
+        <p class="h-lead"><a href="{{url.how}}#tiers" style="color:var(--green);text-decoration:underline;text-underline-offset:3px">{{join.tier_link}}</a>{{join.tier_lead_rest}}</p>
+      </div>
+      <div class="cols3">
+        <div class="card reveal delay-1" data-tilt>
+          <p class="card-eyebrow muted">BASIC</p>
+          <h3>{{join.tier_basic_title}}</h3>
+          <p>{{join.tier_basic_text}}</p>
+        </div>
+        <div class="card mint-bg reveal delay-2" data-tilt>
+          <p class="card-eyebrow">PREMIUM</p>
+          <h3>{{join.tier_premium_title}}</h3>
+          <p>{{join.tier_premium_text}}</p>
+        </div>
+        <div class="card reveal delay-3" data-tilt>
+          <p class="card-eyebrow gold">PLATINUM</p>
+          <h3>{{join.tier_platinum_title}}</h3>
+          <p>{{join.tier_platinum_text}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · FAQ ═══ -->
+  <section class="section" aria-labelledby="faq-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{join.faq_label}}</p>
+        <h2 id="faq-h" class="h-title">{{join.faq_title}}</h2>
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1">{{join.faq_q1}} <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-1" role="region"><div class="faq-a-inner">{{join.faq_a1}}</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2">{{join.faq_q2}} <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-2" role="region"><div class="faq-a-inner">{{join.faq_a2}}</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3">{{join.faq_q3}} <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-3" role="region"><div class="faq-a-inner">{{join.faq_a3}}</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4">{{join.faq_q4}} <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-4" role="region"><div class="faq-a-inner">{{join.faq_a4}}</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5">{{join.faq_q5}} <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-5" role="region"><div class="faq-a-inner">{{join.faq_a5}}</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-6">{{join.faq_q6}} <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-6" role="region"><div class="faq-a-inner">{{join.faq_a6}}</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-7">{{join.faq_q7}} <span class="faq-icon" aria-hidden="true">+</span></button>
+          <div class="faq-a" id="faq-a-7" role="region"><div class="faq-a-inner">{{join.faq_a7}}</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · CTA ═══ -->
+  <section class="cta-strip" aria-labelledby="join-cta-h">
+    <div class="cta-strip-inner">
+      <h2 id="join-cta-h">{{join.cta_title}}</h2>
+      <p>{{join.cta_text}}</p>
+      <div class="cta-btns">
+        <a href="{{url.contact}}" class="btn btn-gold btn-lg">{{join.cta_btn_message}}</a>
+        <button class="btn btn-ghost-light btn-lg" data-contact="wa" data-text="{{join.wa_text_general}}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.113 1.524 5.843L.057 23.18c-.073.35.2.684.558.655l5.564-.484A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.956 0-3.789-.569-5.328-1.548l-.376-.226-3.875.336.366-3.735-.246-.389A9.966 9.966 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          {{join.cta_btn_wa}}
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<!-- @footer -->
+<!-- /@footer -->
+
+<button class="to-top" aria-label="{{aria.to_top}}">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast" role="alert" aria-live="polite"></div>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="/assets/main.js"></script>
+</body>
+</html>

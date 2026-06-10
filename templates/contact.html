@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{contact.title}}</title>
+<meta name="description" content="{{contact.meta_description}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{meta.og_locale}}">
+<meta property="og:title" content="{{contact.og_title}}">
+<meta property="og:description" content="{{contact.og_description}}">
+<meta property="og:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{{contact.canonical}}">
+<meta property="og:url" content="{{contact.canonical}}">
+<link rel="alternate" hreflang="he" href="https://bishvileinu.org.il/contact">
+<link rel="alternate" hreflang="en" href="https://bishvileinu.org.il/en/contact">
+<link rel="alternate" hreflang="fr" href="https://bishvileinu.org.il/fr/contact">
+<link rel="alternate" hreflang="es" href="https://bishvileinu.org.il/es/contact">
+<link rel="alternate" hreflang="x-default" href="https://bishvileinu.org.il/contact">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{contact.og_title}}">
+<meta name="twitter:description" content="{{contact.og_description}}">
+<meta name="twitter:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<meta name="theme-color" content="#1F8A4D">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"בשבילנו","alternateName":"Bishvileinu","url":"https://bishvileinu.org.il/","logo":"https://bishvileinu.org.il/assets/icon-512.png","description":"{{jsonld_description}}","email":"nerya@betar.org.il","telephone":"+972-50-600-0695","areaServed":"Worldwide Jewish communities and Israel","knowsAbout":["הנצחת חללי צה\"ל","חיבור ישראל והתפוצות","חוסן יהודי","זיכרון בונה חיים"],"contactPoint":{"@type":"ContactPoint","email":"nerya@betar.org.il","contactType":"customer support","availableLanguage":["he","en","fr","es"]}}
+</script>
+<!-- Analytics (Plausible · ידידותי לפרטיות). להפעלה: פִּתחו חשבון, הסירו את ההערה והחליפו data-domain:
+<script defer data-domain="bishvileinu.org.il" src="https://plausible.io/js/script.js"></script>
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">{{aria.skip}}</a>
+<div class="aurora" aria-hidden="true"></div>
+<div class="fx-grain" aria-hidden="true"></div>
+<div class="scroll-progress" role="progressbar" aria-label="{{aria.reading}}"></div>
+
+<!-- @nav -->
+<!-- /@nav -->
+
+<main id="main">
+
+  <!-- ═══ 1 · PAGE HERO ═══ -->
+  <section class="page-hero" aria-labelledby="contact-h1">
+    <p class="label">{{contact.hero_label}}</p>
+    <h1 id="contact-h1" class="h-title kinetic">{{contact.hero_title}}</h1>
+    <p class="h-lead">{{contact.hero_lead}}</p>
+  </section>
+
+  <!-- ═══ 2 · QUICK-ROUTE CHIPS ═══ -->
+  <section class="section" style="padding-block-end:0;z-index:3" aria-label="{{contact.chips_aria}}">
+    <div class="section-inner">
+      <div class="head head-center reveal" style="margin-block-end:1.5rem">
+        <p class="label">{{contact.chips_label}}</p>
+        <h2 class="h-title" style="font-size:var(--fz-h2)">{{contact.chips_title}}</h2>
+      </div>
+      <div class="form-chips" style="justify-content:center">
+        <button class="chip-btn" data-subject="{{contact.chip1_subject}}">{{contact.chip1_label}}</button>
+        <button class="chip-btn" data-subject="{{contact.chip2_subject}}">{{contact.chip2_label}}</button>
+        <button class="chip-btn" data-subject="{{contact.chip3_subject}}">{{contact.chip3_label}}</button>
+        <button class="chip-btn" data-subject="{{contact.chip4_subject}}">{{contact.chip4_label}}</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · FORM + INFO ═══ -->
+  <section class="section" aria-labelledby="form-h">
+    <div class="section-inner">
+      <div class="contact-split">
+        <!-- FORM -->
+        <div class="contact-form reveal">
+          <h2 id="form-h" class="h-title" style="font-size:var(--fz-h3);margin-block-end:1.5rem">{{contact.form_title}}</h2>
+          <form id="contact-form" novalidate>
+            <input class="hp" type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="form-group">
+              <label for="cf-name">{{contact.label_name}}</label>
+              <input id="cf-name" type="text" name="name" autocomplete="name" required placeholder="{{contact.ph_name}}">
+            </div>
+            <div class="form-group">
+              <label for="cf-email">{{contact.label_email}}</label>
+              <input id="cf-email" type="email" name="email" autocomplete="email" required placeholder="israel@example.com" dir="ltr">
+            </div>
+            <div class="form-group">
+              <label for="cf-org">{{contact.label_org}}</label>
+              <input id="cf-org" type="text" name="org" placeholder="{{contact.ph_org}}">
+            </div>
+            <div class="form-group">
+              <label for="cf-subject">{{contact.label_subject}}</label>
+              <input id="cf-subject" type="text" name="subject" placeholder="{{contact.ph_subject}}">
+            </div>
+            <div class="form-group">
+              <label for="cf-msg">{{contact.label_message}}</label>
+              <textarea id="cf-msg" name="message" required placeholder="{{contact.ph_message}}"></textarea>
+            </div>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-block-start:.5rem">
+              <button type="submit" id="contact-send" class="btn btn-primary btn-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                {{contact.btn_send}}
+              </button>
+              <button type="button" id="contact-wa" class="btn btn-whatsapp btn-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.113 1.524 5.843L.057 23.18c-.073.35.2.684.558.655l5.564-.484A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.956 0-3.789-.569-5.328-1.548l-.376-.226-3.875.336.366-3.735-.246-.389A9.966 9.966 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                {{contact.btn_whatsapp}}
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- INFO -->
+        <div class="contact-info reveal delay-2">
+          <a class="info-card" href="mailto:nerya@betar.org.il" data-tilt>
+            <div class="info-icon" aria-hidden="true">✉️</div>
+            <div>
+              <strong>{{contact.info_email_title}}</strong>
+              <span dir="ltr" style="display:block;text-align:match-parent">nerya@betar.org.il</span>
+            </div>
+          </a>
+          <a class="info-card" href="https://wa.me/972506000695" target="_blank" rel="noopener" data-tilt>
+            <div class="info-icon" aria-hidden="true">💬</div>
+            <div>
+              <strong>{{contact.info_wa_title}}</strong>
+              <span dir="ltr" style="display:block;text-align:match-parent">+972&nbsp;50-600-0695</span>
+            </div>
+          </a>
+          <div class="info-card" data-tilt>
+            <div class="info-icon" aria-hidden="true">⏱️</div>
+            <div>
+              <strong>{{contact.info_response_title}}</strong>
+              <span>{{contact.info_response_text}}</span>
+            </div>
+          </div>
+          <div class="info-card" data-tilt>
+            <div class="info-icon" aria-hidden="true">🌍</div>
+            <div>
+              <strong>{{contact.info_lang_title}}</strong>
+              <span>{{contact.info_lang_text}}</span>
+            </div>
+          </div>
+
+          <!-- CTA mini box -->
+          <div style="background:var(--mint);border-radius:var(--r);padding:1.5rem;border:1.5px solid color-mix(in srgb,var(--green) 20%,transparent);margin-block-start:.5rem">
+            <p class="label" style="margin-block-end:.5rem">{{contact.cta_label}}</p>
+            <p style="color:var(--muted);font-size:.93rem;margin-block-end:1rem;line-height:1.65">{{contact.cta_text}}</p>
+            <a href="{{url.join}}" class="btn btn-primary">{{contact.cta_btn}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- @footer -->
+<!-- /@footer -->
+
+<button class="to-top" aria-label="{{aria.to_top}}">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast" role="alert" aria-live="polite"></div>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="/assets/main.js"></script>
+</body>
+</html>

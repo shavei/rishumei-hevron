@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{about.title}}</title>
+<meta name="description" content="{{about.meta_description}}">
+<meta property="og:title" content="{{about.og_title}}">
+<meta property="og:locale" content="{{meta.og_locale}}">
+<meta property="og:image" content="https://bishvileinu.org.il/assets/images/hills-sunset.png">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{{about.canonical}}">
+<meta property="og:url" content="{{about.canonical}}">
+<link rel="alternate" hreflang="he" href="https://bishvileinu.org.il/about">
+<link rel="alternate" hreflang="en" href="https://bishvileinu.org.il/en/about">
+<link rel="alternate" hreflang="fr" href="https://bishvileinu.org.il/fr/about">
+<link rel="alternate" hreflang="es" href="https://bishvileinu.org.il/es/about">
+<link rel="alternate" hreflang="x-default" href="https://bishvileinu.org.il/about">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{about.twitter_title}}">
+<meta name="twitter:description" content="{{about.twitter_description}}">
+<meta name="twitter:image" content="https://bishvileinu.org.il/assets/images/hills-sunset.png">
+<meta name="theme-color" content="#1F8A4D">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"בשבילנו","alternateName":"Bishvileinu","url":"https://bishvileinu.org.il/","logo":"https://bishvileinu.org.il/assets/icon-512.png","description":"{{jsonld_description}}","email":"nerya@betar.org.il","telephone":"+972-50-600-0695","areaServed":"Worldwide Jewish communities and Israel","knowsAbout":["הנצחת חללי צה\"ל","חיבור ישראל והתפוצות","חוסן יהודי","זיכרון בונה חיים"],"contactPoint":{"@type":"ContactPoint","email":"nerya@betar.org.il","contactType":"customer support","availableLanguage":["he","en","fr","es"]}}
+</script>
+<!-- Analytics (Plausible · ידידותי לפרטיות). להפעלה: פִּתחו חשבון, הסירו את ההערה והחליפו data-domain:
+<script defer data-domain="bishvileinu.org.il" src="https://plausible.io/js/script.js"></script>
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">{{aria.skip}}</a>
+<div class="aurora" aria-hidden="true"></div>
+<div class="fx-grain" aria-hidden="true"></div>
+<div class="scroll-progress"></div>
+
+<!-- NAV -->
+<!-- @nav -->
+<!-- /@nav -->
+
+<main id="main">
+
+  <!-- ═══ 1 · PAGE HERO ═══ -->
+  <section class="page-hero" aria-labelledby="about-h1">
+    <p class="label">{{about.hero_label}}</p>
+    <h1 id="about-h1" class="h-title kinetic">{{about.hero_title}}</h1>
+    <p class="h-lead">{{about.hero_lead}}</p>
+  </section>
+
+  <!-- ═══ 2 · SOLIDARITY + DIASPORA ═══ -->
+  <section class="section" aria-labelledby="solidarity-h">
+    <div class="section-inner">
+      <div class="head reveal">
+        <p class="label">{{about.background_label}}</p>
+        <h2 id="solidarity-h" class="h-title">{{about.background_title}}</h2>
+      </div>
+      <div class="context-split">
+        <div class="context-box reveal delay-1">
+          <h3>{{about.solidarity_title}}</h3>
+          <p>{{about.solidarity_text}}</p>
+        </div>
+        <div class="context-box reveal delay-2">
+          <h3>{{about.diaspora_title}}</h3>
+          <p>{{about.diaspora_text}}</p>
+        </div>
+      </div>
+      <div class="photoband reveal" style="height:clamp(260px,35vw,420px);margin-block-start:2rem">
+        <picture><source type="image/avif" srcset="/assets/images/memory-wall.avif"><source type="image/webp" srcset="/assets/images/memory-wall.webp"><img src="/assets/images/memory-wall.png" alt="{{about.alt_memory_wall}}" width="1600" height="900" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · DOUBLE MEANING (signature motif) ═══ -->
+  <section class="section section-cream" aria-labelledby="meaning-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{about.meaning_label}}</p>
+        <h2 id="meaning-h" class="h-title">{{about.meaning_title}}</h2>
+      </div>
+      <div class="meanings reveal">
+        <div>
+          <div class="meaning-word gold">{{about.meaning_word1}}</div>
+          <p class="meaning-body">{{about.meaning_body1}}</p>
+        </div>
+        <div class="meaning-divider"></div>
+        <div>
+          <div class="meaning-word green">{{about.meaning_word2}}</div>
+          <p class="meaning-body">{{about.meaning_body2}}</p>
+        </div>
+        <p class="meaning-close">{{about.meaning_close}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · PURPOSE + HILLS PARALLAX ═══ -->
+  <section class="section section-sky" aria-labelledby="purpose-h">
+    <div class="section-inner">
+      <div class="head reveal">
+        <p class="label">{{about.purpose_label}}</p>
+        <h2 id="purpose-h" class="h-title">{{about.purpose_title}}</h2>
+        <p class="h-lead">{{about.purpose_lead1}}</p>
+        <p class="h-lead" style="margin-block-start:.75rem">{{about.purpose_lead2}}</p>
+      </div>
+      <div class="photoband reveal" style="height:clamp(280px,38vw,460px)">
+        <picture><source type="image/avif" srcset="/assets/images/hills-sunset.avif 1600w, /assets/images/hills-sunset-768.avif 768w" sizes="(max-width:760px) 100vw, 1100px"><source type="image/webp" srcset="/assets/images/hills-sunset.webp 1600w, /assets/images/hills-sunset-768.webp 768w" sizes="(max-width:760px) 100vw, 1100px"><img src="/assets/images/hills-sunset.png" alt="{{about.alt_hills}}" width="1600" height="900" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 5 · THREE SIDES ═══ -->
+  <section class="section" aria-labelledby="sides-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{about.sides_label}}</p>
+        <h2 id="sides-h" class="h-title">{{about.sides_title}}</h2>
+      </div>
+      <div class="sides">
+        <div class="side reveal delay-1">
+          <p class="side-role">{{about.side1_role}}</p>
+          <h3>{{about.side1_title}}</h3>
+          <p>{{about.side1_text}}</p>
+        </div>
+        <div class="side center-side reveal delay-2">
+          <p class="side-role">{{about.side2_role}}</p>
+          <h3>{{about.side2_title}}</h3>
+          <p>{{about.side2_text}}</p>
+        </div>
+        <div class="side reveal delay-3">
+          <p class="side-role">{{about.side3_role}}</p>
+          <h3>{{about.side3_title}}</h3>
+          <p>{{about.side3_text}}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 6 · VISION BAND ═══ -->
+  <section class="statement" style="background:var(--ink-soft)" aria-labelledby="vision-h">
+    <div class="statement-inner">
+      <p class="label label-light">{{about.vision_label}}</p>
+      <div class="statement-lines">
+        <div class="statement-line kinetic" id="vision-h">{{about.vision_l1}}</div>
+        <div class="statement-line kinetic" style="color:var(--gold-light)">{{about.vision_l2}}</div>
+        <div class="statement-line kinetic">{{about.vision_l3}}</div>
+      </div>
+      <p class="statement-sub">{{about.vision_sub}}</p>
+    </div>
+  </section>
+
+  <!-- ═══ 7 · PRAYER QUOTE + ILLUSTRATION (signature motif) ═══ -->
+  <section class="section section-cream" aria-labelledby="prayer-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{about.prayer_label}}</p>
+        <h2 id="prayer-h" class="h-title" style="font-size:var(--fz-disp)">{{about.prayer_title}}</h2>
+      </div>
+      <div class="closing-illo reveal">
+        <picture><source type="image/avif" srcset="/assets/images/illustration-builders.avif"><source type="image/webp" srcset="/assets/images/illustration-builders.webp"><img src="/assets/images/illustration-builders.png" alt="{{about.alt_builders}}" width="896" height="1195" loading="lazy" decoding="async"></picture>
+        <div class="closing-text">
+          <div class="quote-sacred">
+            <blockquote>{{about.prayer_quote}}</blockquote>
+            <p class="quote-source">{{about.prayer_source}}</p>
+          </div>
+          <p class="closing-phrase" style="text-align:start">
+            {{about.closing_phrase}}
+          </p>
+          <div style="margin-block-start:2.5rem;display:flex;gap:1rem;flex-wrap:wrap">
+            <a href="{{url.join}}" class="btn btn-primary btn-lg">{{about.btn_join}}</a>
+            <a href="{{url.how}}" class="btn btn-ghost btn-lg">{{about.btn_how}}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- @footer -->
+<!-- /@footer -->
+
+<button class="to-top" aria-label="{{aria.to_top}}">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast" role="alert" aria-live="polite"></div>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="/assets/main.js"></script>
+</body>
+</html>

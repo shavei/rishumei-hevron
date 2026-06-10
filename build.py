@@ -97,12 +97,13 @@ def link_url(slug, lang, available):
 
 
 def build_link_tokens(page, lang, available):
-    """url.* (nav/footer) + lang_url.* (switcher) for one rendered page."""
+    """url.* (nav/footer) + lang_url.* (switcher) for one rendered page.
+    `available` is the full {lang: set(pages)} map."""
     d = {}
     for name, (he_rel, slug) in NAV_TARGETS.items():
-        d["url." + name] = he_rel if lang == DEFAULT else link_url(slug, lang, available)
+        d["url." + name] = he_rel if lang == DEFAULT else link_url(slug, lang, available[lang])
     for tl in LANGS:
-        d["lang_url." + tl] = page_url(page, tl, AVAILABLE[tl])
+        d["lang_url." + tl] = page_url(page, tl, available[tl])
     return d
 
 
@@ -124,13 +125,29 @@ def inject(html, name, content):
 # ── Discover pages & languages ──────────────────────────────────────────────
 TEMPLATES = sorted(p.name for p in TPL_DIR.glob("*.html"))
 TPL_PAGES = {p[:-5] for p in TEMPLATES}            # basenames without .html
-# Pages available per language: he has all root pages (templated + legacy);
-# other languages have exactly the templated pages.
 LEGACY_PAGES = {p.stem for p in ROOT.glob("*.html")}
-AVAILABLE = {DEFAULT: LEGACY_PAGES | TPL_PAGES}
+
+
+def is_complete(page):
+    """A templated page is buildable only once its translations exist for every
+    language.  A template that references {{page.*}} tokens needs all four
+    fragment files; one that doesn't (e.g. index, fully global) is always ready.
+    This keeps the rollout incremental — half-translated pages are simply
+    skipped instead of breaking the build."""
+    tpl = (TPL_DIR / f"{page}.html").read_text(encoding="utf-8")
+    needs_fragment = re.search(r"\{\{\s*%s\." % re.escape(page), tpl) is not None
+    if not needs_fragment:
+        return True
+    return all((FRAG_DIR / f"{page}.{l}.json").exists() for l in LANGS)
+
+
+COMPLETE = {p for p in TPL_PAGES if is_complete(p)}
+# Pages available per language: he has every root page (legacy + complete
+# templates); other languages have exactly the complete templated pages.
+AVAILABLE = {DEFAULT: LEGACY_PAGES | COMPLETE}
 for l in LANGS:
     if l != DEFAULT:
-        AVAILABLE[l] = set(TPL_PAGES)
+        AVAILABLE[l] = set(COMPLETE)
 
 GLOBAL = {l: flatten(json.loads((I18N_DIR / f"{l}.json").read_text(encoding="utf-8"))) for l in LANGS}
 
