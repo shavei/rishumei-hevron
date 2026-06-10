@@ -14,6 +14,67 @@ const _c = (function(){
   return { email: a, wa: 'https://wa.me/' + w };
 })();
 
+/* ── Localized strings for JS-composed messages (mailto / WhatsApp / toast) ──
+   Follows the page language (set via <html lang>), so contact links match. */
+const LANG = (document.documentElement.lang || 'he').slice(0,2);
+const STR = (function(){
+  const D = {
+    he: {
+      locale: 'he-IL',
+      subjectDefault: 'פנייה מהאתר',
+      fillAll: 'אנא מלאו את כל השדות הנדרשים',
+      badEmail: 'כתובת המייל אינה תקינה',
+      waGeneric: 'שלום, אשמח לשמוע עוד על בשבילנו',
+      contactWA: (n,s,m) => `שלום, אני ${n}. ${s ? 'נושא: '+s+'. ' : ''}${m}`,
+      mailBody: (n,e,m) => `שם: ${n}\nמייל: ${e}\n\n${m}`,
+      donateSubject: 'תרומה לבשבילנו',
+      donateAmount: a => 'בסך ₪' + a,
+      donateAmountTBD: '(סכום שנבחר בהמשך)',
+      donateMsg: (amt,freq,label) => `שלום, אני רוצה לתרום לבשבילנו ${amt} — תרומה ${freq}${label ? ' (' + label + ')' : ''}. אשמח לקבל פרטים והנחיות.`
+    },
+    en: {
+      locale: 'en-US',
+      subjectDefault: 'Inquiry from the website',
+      fillAll: 'Please fill in all required fields',
+      badEmail: 'The email address is invalid',
+      waGeneric: "Hello, I'd love to hear more about Bishvileinu",
+      contactWA: (n,s,m) => `Hello, I'm ${n}. ${s ? 'Subject: '+s+'. ' : ''}${m}`,
+      mailBody: (n,e,m) => `Name: ${n}\nEmail: ${e}\n\n${m}`,
+      donateSubject: 'Donation to Bishvileinu',
+      donateAmount: a => '₪' + a,
+      donateAmountTBD: '(amount to be chosen)',
+      donateMsg: (amt,freq,label) => `Hello, I would like to donate ${amt} to Bishvileinu — a ${freq} donation${label ? ' (' + label + ')' : ''}. I'd be glad to receive details and instructions.`
+    },
+    fr: {
+      locale: 'fr-FR',
+      subjectDefault: 'Demande depuis le site',
+      fillAll: 'Veuillez remplir tous les champs requis',
+      badEmail: "L'adresse e-mail n'est pas valide",
+      waGeneric: "Bonjour, je serais ravi(e) d'en savoir plus sur Bishvileinu",
+      contactWA: (n,s,m) => `Bonjour, je suis ${n}. ${s ? 'Objet : '+s+'. ' : ''}${m}`,
+      mailBody: (n,e,m) => `Nom : ${n}\nE-mail : ${e}\n\n${m}`,
+      donateSubject: 'Don à Bishvileinu',
+      donateAmount: a => a + ' ₪',
+      donateAmountTBD: '(montant à définir)',
+      donateMsg: (amt,freq,label) => `Bonjour, je souhaite faire un don de ${amt} à Bishvileinu — un don ${freq}${label ? ' (' + label + ')' : ''}. Je serais ravi(e) de recevoir des informations et des instructions.`
+    },
+    es: {
+      locale: 'es-ES',
+      subjectDefault: 'Consulta desde el sitio web',
+      fillAll: 'Por favor, completa todos los campos obligatorios',
+      badEmail: 'La dirección de correo no es válida',
+      waGeneric: 'Hola, me encantaría saber más sobre Bishvileinu',
+      contactWA: (n,s,m) => `Hola, soy ${n}. ${s ? 'Asunto: '+s+'. ' : ''}${m}`,
+      mailBody: (n,e,m) => `Nombre: ${n}\nCorreo: ${e}\n\n${m}`,
+      donateSubject: 'Donación a Bishvileinu',
+      donateAmount: a => '₪' + a,
+      donateAmountTBD: '(importe a definir)',
+      donateMsg: (amt,freq,label) => `Hola, quiero donar ${amt} a Bishvileinu — una donación ${freq}${label ? ' (' + label + ')' : ''}. Me gustaría recibir detalles e instrucciones.`
+    }
+  };
+  return D[LANG] || D.he;
+})();
+
 /* ── Scroll Progress (JS fallback only) ── */
 (function(){
   const bar = document.querySelector('.scroll-progress');
@@ -57,41 +118,18 @@ const _c = (function(){
   addEventListener('keydown', e => { if (e.key === 'Escape') toggle(false); });
 })();
 
-/* ── Language switcher ── */
+/* ── Language switcher ──
+   Hrefs are computed at build time (per page, per language) — see build.py.
+   JS only handles: active marker, remembering the choice, open/close, and a
+   narrow "return to my language" redirect on the default home. */
 (function(){
-  const LANGS = ['he','en','fr','es'];
-  // Pages available per non-default language (he = default, all root pages).
-  const TRANSLATED = { en:['index'], fr:['index'], es:['index'] };
+  const langs = ['he','en','fr','es'];
+  const onHome = location.pathname === '/' || location.pathname === '/index' || location.pathname === '/index.html';
 
-  function currentLang(){
-    const seg = location.pathname.split('/').filter(Boolean)[0];
-    return LANGS.includes(seg) && seg !== 'he' ? seg : 'he';
-  }
-  function currentPage(){
-    const parts = location.pathname.split('/').filter(Boolean);
-    let last = parts[parts.length - 1] || 'index';
-    if (LANGS.includes(last) && last !== 'he') last = 'index'; // e.g. /en
-    return last.replace(/\.html$/, '') || 'index';
-  }
-  function hasTranslation(page, lang){
-    if (lang === 'he') return true;
-    return (TRANSLATED[lang] || []).includes(page);
-  }
-  function urlFor(lang, page){
-    if (lang === 'he') return page === 'index' ? '/' : '/' + page;
-    if (hasTranslation(page, lang)) return page === 'index' ? '/' + lang + '/' : '/' + lang + '/' + page;
-    return '/' + lang + '/'; // fall back to that language's home
-  }
-
-  const cur = currentLang();
-  const page = currentPage();
-
-  // Wire every switcher link (dropdown + drawer) for this page, mark the active one.
   document.querySelectorAll('[data-lang]').forEach(a => {
     const lang = a.dataset.lang;
-    a.setAttribute('href', urlFor(lang, page));
-    a.classList.toggle('active', lang === cur);
-    if (lang === cur) a.setAttribute('aria-current', 'true');
+    a.classList.toggle('active', lang === LANG);
+    if (lang === LANG) a.setAttribute('aria-current', 'true');
     a.addEventListener('click', () => { try { localStorage.setItem('lang', lang); } catch(e){} });
   });
 
@@ -110,13 +148,12 @@ const _c = (function(){
     addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
   }
 
-  // Remember preference: on the default home only, send returning visitors to
+  // Remember preference: on the Hebrew home only, send returning visitors to
   // their chosen language home (kept narrow to avoid surprises / SEO issues).
   try {
     const saved = localStorage.getItem('lang');
-    const onHome = page === 'index' && (location.pathname === '/' || location.pathname === '/index' || location.pathname === '/index.html');
-    if (saved && saved !== cur && cur === 'he' && onHome && hasTranslation('index', saved)) {
-      location.replace(urlFor(saved, 'index'));
+    if (saved && saved !== LANG && LANG === 'he' && onHome && langs.includes(saved) && saved !== 'he') {
+      location.replace('/' + saved + '/');
     }
   } catch(e){}
 })();
@@ -284,7 +321,7 @@ function showToast(msg){
       const name    = (form.querySelector('#cf-name')?.value    || '').trim();
       const subject = (form.querySelector('#cf-subject')?.value || '').trim();
       const msg     = (form.querySelector('#cf-msg')?.value     || '').trim();
-      const text = encodeURIComponent(`שלום, אני ${name}. ${subject ? 'נושא: '+subject+'. ' : ''}${msg}`);
+      const text = encodeURIComponent(STR.contactWA(name, subject, msg));
       window.open(_c.wa + '?text=' + text, '_blank', 'noopener');
     });
   }
@@ -295,11 +332,11 @@ function showToast(msg){
       if (form.querySelector('.hp')?.value) return;
       const name    = form.querySelector('#cf-name')?.value?.trim()    || '';
       const email   = form.querySelector('#cf-email')?.value?.trim()   || '';
-      const subject = form.querySelector('#cf-subject')?.value?.trim() || 'פנייה מהאתר';
+      const subject = form.querySelector('#cf-subject')?.value?.trim() || STR.subjectDefault;
       const msg     = form.querySelector('#cf-msg')?.value?.trim()     || '';
-      if (!name || !email || !msg) { showToast('אנא מלאו את כל השדות הנדרשים'); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast('כתובת המייל אינה תקינה'); return; }
-      const body = `שם: ${name}\nמייל: ${email}\n\n${msg}`;
+      if (!name || !email || !msg) { showToast(STR.fillAll); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showToast(STR.badEmail); return; }
+      const body = STR.mailBody(name, email, msg);
       location.href = `mailto:${_c.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
   }
@@ -309,13 +346,13 @@ function showToast(msg){
 (function(){
   document.querySelectorAll('[data-contact="mail"]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const subj = encodeURIComponent(btn.dataset.subject || 'פנייה מהאתר');
+      const subj = encodeURIComponent(btn.dataset.subject || STR.subjectDefault);
       location.href = `mailto:${_c.email}?subject=${subj}`;
     });
   });
   document.querySelectorAll('[data-contact="wa"]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const text = encodeURIComponent(btn.dataset.text || 'שלום, אשמח לשמוע עוד על בשבילנו');
+      const text = encodeURIComponent(btn.dataset.text || STR.waGeneric);
       window.open(_c.wa + '?text=' + text, '_blank', 'noopener');
     });
   });
@@ -331,10 +368,10 @@ function showToast(msg){
 (function(){
   const grid = document.querySelector('.give-grid');
   if (!grid) return;
-  let amount = '180', label = 'מפגש זיכרון בקהילה', freq = 'חד-פעמית';
+  let amount = '180', label = '', freq = '';
   const out = document.getElementById('give-selected-text');
   function refresh(){
-    out.textContent = (amount ? '₪' + (+amount).toLocaleString('he-IL') + ' — ' : '') + label + ' · ' + freq;
+    out.textContent = (amount ? '₪' + (+amount).toLocaleString(STR.locale) + ' — ' : '') + label + ' · ' + freq;
   }
   grid.querySelectorAll('.give-card').forEach(c => {
     c.addEventListener('click', () => {
@@ -350,16 +387,21 @@ function showToast(msg){
     });
   });
   function message(){
-    const amt = amount ? ('בסך ₪' + (+amount).toLocaleString('he-IL')) : '(סכום שנבחר בהמשך)';
-    return `שלום, אני רוצה לתרום לבשבילנו ${amt} — תרומה ${freq}${label ? ' (' + label + ')' : ''}. אשמח לקבל פרטים והנחיות.`;
+    const amt = amount ? STR.donateAmount((+amount).toLocaleString(STR.locale)) : STR.donateAmountTBD;
+    return STR.donateMsg(amt, freq, label);
   }
   document.getElementById('give-mail')?.addEventListener('click', () => {
-    location.href = `mailto:${_c.email}?subject=${encodeURIComponent('תרומה לבשבילנו')}&body=${encodeURIComponent(message())}`;
+    location.href = `mailto:${_c.email}?subject=${encodeURIComponent(STR.donateSubject)}&body=${encodeURIComponent(message())}`;
   });
   document.getElementById('give-wa')?.addEventListener('click', () => {
     window.open(_c.wa + '?text=' + encodeURIComponent(message()), '_blank', 'noopener');
   });
-  grid.querySelector('[data-amount="180"]')?.classList.add('active');
+  // Seed the initial selection from the (localized) markup so the summary + message
+  // read in the page language before any click.
+  const defCard = grid.querySelector('[data-amount="180"]') || grid.querySelector('.give-card');
+  if (defCard){ defCard.classList.add('active'); amount = defCard.dataset.amount || amount; label = defCard.dataset.label || label; }
+  const defFreq = document.querySelector('.give-freq .chip-btn.active') || document.querySelector('.give-freq .chip-btn');
+  if (defFreq){ defFreq.classList.add('active'); freq = defFreq.dataset.freq || freq; }
   refresh();
 })();
 
