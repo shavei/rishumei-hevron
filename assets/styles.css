@@ -133,12 +133,16 @@ ul, ol { list-style: none; }
 
 /* ── Scroll Progress ── */
 .scroll-progress {
-  position: fixed; inset-block-start: 0; inset-inline-start: 0;
+  position: fixed; inset-block-start: 0; inset-inline: 0;
   height: 3px;
-  background: linear-gradient(to left, var(--gold), var(--green));
-  transform-origin: right; transform: scaleX(0);
+  background: linear-gradient(to right, var(--green), var(--gold));
+  transform-origin: left; transform: scaleX(0);
   z-index: 1000;
   view-transition-name: progress;
+}
+html[dir="rtl"] .scroll-progress {
+  background: linear-gradient(to left, var(--gold), var(--green));
+  transform-origin: right;
 }
 @supports (animation-timeline: scroll()) {
   .scroll-progress {
@@ -510,7 +514,7 @@ ul, ol { list-style: none; }
   color:var(--ink); line-height:1.6; max-width:720px; margin-inline:auto; position:relative;
 }
 .quote-sacred blockquote::before {
-  content:'"'; position:absolute; inset-block-start:-.5em; inset-inline-end:-.3em;
+  content:'"'; position:absolute; inset-block-start:-.5em; inset-inline-start:-.3em;
   font-size:5em; color:var(--line); font-family:serif; line-height:1; pointer-events:none;
 }
 .quote-source { margin-block-start:.75rem; font-size:var(--fz-eye); color:var(--muted); font-style:italic; }
