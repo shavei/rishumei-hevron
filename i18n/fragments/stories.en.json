@@ -1,0 +1,25 @@
+{
+  "stories": {
+    "title": "Stories — Bishvileinu · Memory Builds Life",
+    "description": "Bishvileinu's living wall of memory — the stories of the fallen and the memorial initiatives founded in their memory. The full archive will be revealed here soon.",
+    "og_title": "Stories — Bishvileinu",
+    "og_description": "The living wall of memory — the stories of the fallen and the memorial initiatives founded in their memory.",
+    "canonical": "https://bishvileinu.org.il/en/stories",
+    "hero_label": "Stories",
+    "hero_title": "The <span class=\"c-green\">living</span> wall of memory",
+    "hero_lead": "Behind every memorial initiative stands a person, a story and a set of values. Here the stories of the fallen and the initiatives founded in their memory will unfold.",
+    "concept_label": "What will be revealed here",
+    "concept_title": "From a story — <span class=\"c-green\">to a path</span>",
+    "concept_lead": "Every story is a gateway. We gather the stories of the fallen and the living memorial initiatives that grew from them — agriculture, education, settlement, welfare and health — so that communities around the world can get to know them, adopt them and carry them on.",
+    "concept_alt": "A wall with photographs and stories of fallen soldiers",
+    "soon_label": "Coming soon",
+    "soon_title": "The archive <span class=\"c-gold\">is being built now</span>",
+    "soon_lead": "We are carefully gathering the stories and the initiatives, together with the families. Soon a full archive will be revealed here — filtered by field — from which every community can choose the initiative closest to its heart.",
+    "soon_btn_families": "Founded an initiative? Tell us",
+    "soon_btn_communities": "A community that wants to adopt",
+    "cta_title": "Every fallen soldier deserves to have their story live on",
+    "cta_text": "Help us widen the circle of remembrance — join, adopt, or donate.",
+    "cta_btn_join": "Join the circle",
+    "cta_btn_donate": "Donate"
+  }
+}

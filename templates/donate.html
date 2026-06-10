@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{donate.title}}</title>
+<meta name="description" content="{{donate.meta_description}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{meta.og_locale}}">
+<meta property="og:title" content="{{donate.og_title}}">
+<meta property="og:description" content="{{donate.og_description}}">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{{donate.canonical}}">
+<meta property="og:url" content="{{donate.canonical}}">
+<meta property="og:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<link rel="alternate" hreflang="he" href="https://bishvileinu.org.il/donate">
+<link rel="alternate" hreflang="en" href="https://bishvileinu.org.il/en/donate">
+<link rel="alternate" hreflang="fr" href="https://bishvileinu.org.il/fr/donate">
+<link rel="alternate" hreflang="es" href="https://bishvileinu.org.il/es/donate">
+<link rel="alternate" hreflang="x-default" href="https://bishvileinu.org.il/donate">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{donate.og_title}}">
+<meta name="twitter:description" content="{{donate.og_description}}">
+<meta name="twitter:image" content="https://bishvileinu.org.il/assets/images/sprout-rebirth.png">
+<meta name="theme-color" content="#1F8A4D">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"בשבילנו","alternateName":"Bishvileinu","url":"https://bishvileinu.org.il/","logo":"https://bishvileinu.org.il/assets/icon-512.png","description":"{{jsonld_description}}","email":"nerya@betar.org.il","telephone":"+972-50-600-0695","areaServed":"Worldwide Jewish communities and Israel","knowsAbout":["הנצחת חללי צה\"ל","חיבור ישראל והתפוצות","חוסן יהודי","זיכרון בונה חיים"],"contactPoint":{"@type":"ContactPoint","email":"nerya@betar.org.il","contactType":"customer support","availableLanguage":["he","en","fr","es"]}}
+</script>
+<!-- Analytics (Plausible · ידידותי לפרטיות). להפעלה: פִּתחו חשבון, הסירו את ההערה והחליפו data-domain:
+<script defer data-domain="bishvileinu.org.il" src="https://plausible.io/js/script.js"></script>
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">{{aria.skip}}</a>
+<div class="aurora" aria-hidden="true"></div>
+<div class="fx-grain" aria-hidden="true"></div>
+<div class="scroll-progress" role="progressbar" aria-label="{{aria.reading}}"></div>
+
+<!-- @nav -->
+<!-- /@nav -->
+
+<main id="main">
+
+  <!-- ═══ 1 · PAGE HERO ═══ -->
+  <section class="page-hero" aria-labelledby="donate-h1">
+    <p class="label label-gold">{{donate.hero_label}}</p>
+    <h1 id="donate-h1" class="h-title kinetic">{{donate.hero_title}}</h1>
+    <p class="h-lead">{{donate.hero_lead}}</p>
+  </section>
+
+  <!-- ═══ 2 · CHOOSE IMPACT ═══ -->
+  <section class="section" style="padding-block-start:clamp(2rem,4vw,3rem)" aria-labelledby="give-h">
+    <div class="section-inner">
+      <div class="head head-center reveal" style="margin-block-end:2rem">
+        <p class="label">{{donate.give_label}}</p>
+        <h2 id="give-h" class="h-title">{{donate.give_title}}</h2>
+      </div>
+
+      <div class="give-grid reveal">
+        <button class="give-card" data-amount="85" data-label="{{donate.card1_label}}">
+          <span class="give-amount">₪85</span>
+          <span class="give-impact">{{donate.card1_impact}}</span>
+        </button>
+        <button class="give-card" data-amount="180" data-label="{{donate.card2_label}}">
+          <span class="give-amount">₪180</span>
+          <span class="give-impact">{{donate.card2_impact}}</span>
+        </button>
+        <button class="give-card" data-amount="500" data-label="{{donate.card3_label}}">
+          <span class="give-amount">₪500</span>
+          <span class="give-impact">{{donate.card3_impact}}</span>
+        </button>
+        <button class="give-card" data-amount="1800" data-label="{{donate.card4_label}}">
+          <span class="give-amount">₪1,800</span>
+          <span class="give-impact">{{donate.card4_impact}}</span>
+        </button>
+        <button class="give-card" data-amount="5000" data-label="{{donate.card5_label}}">
+          <span class="give-amount">₪5,000</span>
+          <span class="give-impact">{{donate.card5_impact}}</span>
+        </button>
+        <button class="give-card" data-amount="" data-label="{{donate.card6_label}}">
+          <span class="give-amount">{{donate.card6_amount}}</span>
+          <span class="give-impact">{{donate.card6_impact}}</span>
+        </button>
+      </div>
+
+      <div class="give-action reveal">
+        <p class="give-selected">{{donate.selected_prefix}} <strong id="give-selected-text">{{donate.selected_default}}</strong></p>
+        <div class="give-freq" role="group" aria-label="{{donate.freq_aria}}">
+          <button class="chip-btn active" data-freq="{{donate.freq_once}}">{{donate.freq_once}}</button>
+          <button class="chip-btn" data-freq="{{donate.freq_monthly}}">{{donate.freq_monthly}}</button>
+        </div>
+        <div class="give-btns">
+          <button class="btn btn-gold btn-lg" id="give-mail">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            {{donate.btn_mail}}
+          </button>
+          <button class="btn btn-whatsapp btn-lg" id="give-wa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.113 1.524 5.843L.057 23.18c-.073.35.2.684.558.655l5.564-.484A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.956 0-3.789-.569-5.328-1.548l-.376-.226-3.875.336.366-3.735-.246-.389A9.966 9.966 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            {{donate.btn_wa}}
+          </button>
+        </div>
+        <p class="give-note">{{donate.give_note}}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · WHERE THE MONEY GOES (trust) ═══ -->
+  <section class="section section-mint" aria-labelledby="trust-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label">{{donate.trust_label}}</p>
+        <h2 id="trust-h" class="h-title">{{donate.trust_title}}</h2>
+        <p class="h-lead">{{donate.trust_lead}}</p>
+      </div>
+      <div class="cols3">
+        <div class="card reveal delay-1" data-tilt>
+          <div class="card-icon" aria-hidden="true">🤝</div>
+          <h3>{{donate.t1_title}}</h3>
+          <p>{{donate.t1_text}}</p>
+        </div>
+        <div class="card reveal delay-2" data-tilt>
+          <div class="card-icon" aria-hidden="true">📚</div>
+          <h3>{{donate.t2_title}}</h3>
+          <p>{{donate.t2_text}}</p>
+        </div>
+        <div class="card reveal delay-3" data-tilt>
+          <div class="card-icon" aria-hidden="true">✈️</div>
+          <h3>{{donate.t3_title}}</h3>
+          <p>{{donate.t3_text}}</p>
+        </div>
+      </div>
+      <p class="h-lead head-center" style="margin-inline:auto;text-align:center;margin-block-start:2rem">{{donate.trust_note}}</p>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · CTA ═══ -->
+  <section class="cta-strip" aria-labelledby="donate-cta-h">
+    <div class="cta-strip-inner">
+      <h2 id="donate-cta-h">{{donate.cta_title}}</h2>
+      <p>{{donate.cta_text}}</p>
+      <div class="cta-btns">
+        <a href="{{url.contact}}" class="btn btn-gold btn-lg">{{donate.cta_btn_contact}}</a>
+        <a href="{{url.join_donors}}" class="btn btn-ghost-light btn-lg">{{donate.cta_btn_partner}}</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- @footer -->
+<!-- /@footer -->
+
+<button class="to-top" aria-label="{{aria.to_top}}">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast" role="alert" aria-live="polite"></div>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="/assets/main.js"></script>
+</body>
+</html>

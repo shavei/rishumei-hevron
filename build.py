@@ -2,33 +2,62 @@
 """
 Static i18n builder for בשבילנו.
 
-Two responsibilities:
-  1) Shared partials — the single source of truth for nav + footer lives in
-     partials/.  Translatable pages and the legacy Hebrew pages both pull from
-     them.  Each consuming page marks the region with <!-- @nav --> / <!-- @footer -->.
-  2) Multilingual pages — pages listed in TEMPLATES are rendered once per
-     language from templates/<page> + the i18n/<lang>.json dictionaries.
+Pipeline
+--------
+1) Shared partials — single source of truth for nav + footer (partials/).
+   Consuming pages mark the region with <!-- @nav --> / <!-- @footer -->.
+2) Multilingual pages — every file in templates/ is rendered once per language
+   from templates/<page> + the i18n dictionaries:
        he → /<page>            (root, default, RTL)
-       en → /en/<page>         fr → /fr/<page>      es → /es/<page>
+       en → /en/<page>   fr → /fr/<page>   es → /es/<page>
 
-Translation strings live in i18n/*.json (nested; flattened to dotted keys).
-Template tokens use {{dotted.key}} and may contain HTML.
+Strings
+-------
+- Global strings: i18n/<lang>.json (nav, footer, meta scaffolding, aria…).
+- Per-page strings: i18n/fragments/<page>.<lang>.json — merged on top of the
+  global dict when rendering that page.  Keeps page content modular.
+- Dictionaries are nested JSON, flattened to dotted keys.  Tokens are
+  {{dotted.key}} and may contain HTML.
 
-Usage:  python3 build.py
-Idempotent — safe to re-run.
+URLs & language persistence (computed here, never hand-maintained)
+------------------------------------------------------------------
+For every (page, language) build.py injects:
+  - url.*       internal nav/footer links, pointing at the SAME language when
+                that page exists there, else falling back to Hebrew.
+  - lang_url.*  the language-switcher targets: the current page in each of the
+                four languages (or that language's home if not yet translated).
+This is what makes a chosen language "stick" across the whole site: once a page
+has a template, every link to it in every language resolves automatically.
+
+Usage:  python3 build.py   (idempotent)
 """
 import re, json, pathlib
 
-ROOT      = pathlib.Path(__file__).parent
-PART_DIR  = ROOT / "partials"
-TPL_DIR   = ROOT / "templates"
-I18N_DIR  = ROOT / "i18n"
+ROOT     = pathlib.Path(__file__).parent
+PART_DIR = ROOT / "partials"
+TPL_DIR  = ROOT / "templates"
+I18N_DIR = ROOT / "i18n"
+FRAG_DIR = I18N_DIR / "fragments"
 
-LANGS     = ["he", "en", "fr", "es"]          # he is the default (root)
-DEFAULT   = "he"
-TEMPLATES = ["index.html"]                     # pages that are fully translated
+LANGS    = ["he", "en", "fr", "es"]
+DEFAULT  = "he"
+TOKEN_RE = re.compile(r"\{\{\s*([\w.]+)\s*\}\}")
 
-TOKEN_RE  = re.compile(r"\{\{\s*([\w.]+)\s*\}\}")
+# Internal link targets → (Hebrew relative href, slug[, optional #anchor]).
+# The slug's page part decides which translated file the link can resolve to.
+NAV_TARGETS = {
+    "home":             ("index",            "index"),
+    "about":            ("about",            "about"),
+    "team":             ("team",             "team"),
+    "how":              ("how",              "how"),
+    "stories":          ("stories",          "stories"),
+    "join":             ("join",             "join"),
+    "contact":          ("contact",          "contact"),
+    "donate":           ("donate",           "donate"),
+    "join_communities": ("join#communities", "join#communities"),
+    "join_families":    ("join#families",    "join#families"),
+    "join_donors":      ("join#donors",      "join#donors"),
+}
 
 
 def flatten(d, prefix=""):
@@ -42,54 +71,117 @@ def flatten(d, prefix=""):
     return out
 
 
-def load_dicts():
-    dicts = {}
-    for lang in LANGS:
-        raw = json.loads((I18N_DIR / f"{lang}.json").read_text(encoding="utf-8"))
-        dicts[lang] = flatten(raw)
-    return dicts
+def page_url(page, lang, available):
+    """Absolute URL of <page> in <lang>. `available` = pages that exist in <lang>."""
+    has = page in available
+    if lang == DEFAULT:
+        base = "/" if page == "index" else "/" + page
+    elif has:
+        base = "/%s/" % lang if page == "index" else "/%s/%s" % (lang, page)
+    else:  # not translated yet → that language's home
+        base = "/%s/" % lang
+    return base
+
+
+def link_url(slug, lang, available):
+    """Resolve a nav/footer target (slug may carry a #anchor) for <lang>."""
+    page, _, anchor = slug.partition("#")
+    anchor = ("#" + anchor) if anchor else ""
+    if lang == DEFAULT:
+        return slug  # keep Hebrew root links relative, exactly as authored
+    if page in available:
+        base = "/%s/" % lang if page == "index" else "/%s/%s" % (lang, page)
+    else:
+        base = "/" if page == "index" else "/" + page  # Hebrew fallback
+    return base + anchor
+
+
+def build_link_tokens(page, lang, available):
+    """url.* (nav/footer) + lang_url.* (switcher) for one rendered page.
+    `available` is the full {lang: set(pages)} map."""
+    d = {}
+    for name, (he_rel, slug) in NAV_TARGETS.items():
+        d["url." + name] = he_rel if lang == DEFAULT else link_url(slug, lang, available[lang])
+    for tl in LANGS:
+        d["lang_url." + tl] = page_url(page, tl, available[tl])
+    return d
 
 
 def render(text, d):
     def sub(m):
         key = m.group(1)
         if key not in d:
-            raise KeyError(f"missing i18n key: {key}")
+            raise KeyError("missing i18n key: %s" % key)
         return str(d[key])
     return TOKEN_RE.sub(sub, text)
 
 
 def inject(html, name, content):
     pattern = re.compile(r"<!-- @%s -->(?:.*?<!-- /@%s -->)?" % (name, name), re.S)
-    replacement = "<!-- @%s -->\n%s\n<!-- /@%s -->" % (name, content, name)
-    return pattern.sub(lambda m: replacement, html)
+    repl = "<!-- @%s -->\n%s\n<!-- /@%s -->" % (name, content, name)
+    return pattern.sub(lambda m: repl, html)
 
 
-def out_path(page, lang):
-    if lang == DEFAULT:
-        return ROOT / page
-    return ROOT / lang / page
+# ── Discover pages & languages ──────────────────────────────────────────────
+TEMPLATES = sorted(p.name for p in TPL_DIR.glob("*.html"))
+TPL_PAGES = {p[:-5] for p in TEMPLATES}            # basenames without .html
+LEGACY_PAGES = {p.stem for p in ROOT.glob("*.html")}
+
+
+def is_complete(page):
+    """A templated page is buildable only once its translations exist for every
+    language.  A template that references {{page.*}} tokens needs all four
+    fragment files; one that doesn't (e.g. index, fully global) is always ready.
+    This keeps the rollout incremental — half-translated pages are simply
+    skipped instead of breaking the build."""
+    tpl = (TPL_DIR / f"{page}.html").read_text(encoding="utf-8")
+    needs_fragment = re.search(r"\{\{\s*%s\." % re.escape(page), tpl) is not None
+    if not needs_fragment:
+        return True
+    return all((FRAG_DIR / f"{page}.{l}.json").exists() for l in LANGS)
+
+
+COMPLETE = {p for p in TPL_PAGES if is_complete(p)}
+# Pages available per language: he has every root page (legacy + complete
+# templates); other languages have exactly the complete templated pages.
+AVAILABLE = {DEFAULT: LEGACY_PAGES | COMPLETE}
+for l in LANGS:
+    if l != DEFAULT:
+        AVAILABLE[l] = set(COMPLETE)
+
+GLOBAL = {l: flatten(json.loads((I18N_DIR / f"{l}.json").read_text(encoding="utf-8"))) for l in LANGS}
+
+
+def frag(page, lang):
+    f = FRAG_DIR / f"{page}.{lang}.json"
+    if f.exists():
+        return flatten(json.loads(f.read_text(encoding="utf-8")))
+    return {}
+
+
+def dict_for(page, lang, available):
+    d = dict(GLOBAL[lang])
+    d.update(frag(page, lang))
+    d.update(build_link_tokens(page, lang, available))
+    return d
 
 
 def main():
-    dicts   = load_dicts()
-    nav_tpl = (PART_DIR / "nav.html").read_text(encoding="utf-8").strip()
+    nav_tpl  = (PART_DIR / "nav.html").read_text(encoding="utf-8").strip()
     foot_tpl = (PART_DIR / "footer.html").read_text(encoding="utf-8").strip()
-
-    # Pre-render partials for every language.
-    nav  = {l: render(nav_tpl,  dicts[l]) for l in LANGS}
-    foot = {l: render(foot_tpl, dicts[l]) for l in LANGS}
 
     changed = 0
 
     # 1) Multilingual templated pages → one file per language.
-    for page in TEMPLATES:
-        tpl = (TPL_DIR / page).read_text(encoding="utf-8")
+    for fname in TEMPLATES:
+        page = fname[:-5]
+        tpl = (TPL_DIR / fname).read_text(encoding="utf-8")
         for lang in LANGS:
-            html = render(tpl, dicts[lang])
-            html = inject(html, "nav", nav[lang])
-            html = inject(html, "footer", foot[lang])
-            dest = out_path(page, lang)
+            d = dict_for(page, lang, AVAILABLE)
+            html = render(tpl, d)
+            html = inject(html, "nav", render(nav_tpl, d))
+            html = inject(html, "footer", render(foot_tpl, d))
+            dest = ROOT / fname if lang == DEFAULT else ROOT / lang / fname
             dest.parent.mkdir(parents=True, exist_ok=True)
             if not dest.exists() or dest.read_text(encoding="utf-8") != html:
                 dest.write_text(html, encoding="utf-8")
@@ -97,17 +189,19 @@ def main():
                 print("built", dest.relative_to(ROOT))
 
     # 2) Legacy Hebrew pages (not yet templated) → refresh shared partials only.
-    templated = set(TEMPLATES)
-    for page in sorted(ROOT.glob("*.html")):
-        if page.name in templated:
+    for page_file in sorted(ROOT.glob("*.html")):
+        page = page_file.stem
+        if page_file.name in TEMPLATES:
             continue
-        src = page.read_text(encoding="utf-8")
-        out = inject(src, "nav", nav[DEFAULT])
-        out = inject(out, "footer", foot[DEFAULT])
+        d = dict(GLOBAL[DEFAULT])
+        d.update(build_link_tokens(page, DEFAULT, AVAILABLE))
+        src = page_file.read_text(encoding="utf-8")
+        out = inject(src, "nav", render(nav_tpl, d))
+        out = inject(out, "footer", render(foot_tpl, d))
         if out != src:
-            page.write_text(out, encoding="utf-8")
+            page_file.write_text(out, encoding="utf-8")
             changed += 1
-            print("built", page.name)
+            print("built", page_file.name)
 
     print("done — %d file(s) updated" % changed)
 

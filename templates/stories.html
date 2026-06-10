@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{stories.title}}</title>
+<meta name="description" content="{{stories.description}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{meta.og_locale}}">
+<meta property="og:title" content="{{stories.og_title}}">
+<meta property="og:description" content="{{stories.og_description}}">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="{{stories.canonical}}">
+<meta property="og:url" content="{{stories.canonical}}">
+<link rel="alternate" hreflang="he" href="https://bishvileinu.org.il/stories">
+<link rel="alternate" hreflang="en" href="https://bishvileinu.org.il/en/stories">
+<link rel="alternate" hreflang="fr" href="https://bishvileinu.org.il/fr/stories">
+<link rel="alternate" hreflang="es" href="https://bishvileinu.org.il/es/stories">
+<link rel="alternate" hreflang="x-default" href="https://bishvileinu.org.il/stories">
+<meta property="og:image" content="https://bishvileinu.org.il/assets/images/memory-wall.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{stories.og_title}}">
+<meta name="twitter:description" content="{{stories.og_description}}">
+<meta name="twitter:image" content="https://bishvileinu.org.il/assets/images/memory-wall.png">
+<meta name="theme-color" content="#1F8A4D">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800;900&family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&display=swap">
+<link rel="stylesheet" href="/assets/styles.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"NGO","name":"בשבילנו","alternateName":"Bishvileinu","url":"https://bishvileinu.org.il/","logo":"https://bishvileinu.org.il/assets/icon-512.png","description":"{{jsonld_description}}","email":"nerya@betar.org.il","telephone":"+972-50-600-0695","areaServed":"Worldwide Jewish communities and Israel","knowsAbout":["הנצחת חללי צה\"ל","חיבור ישראל והתפוצות","חוסן יהודי","זיכרון בונה חיים"],"contactPoint":{"@type":"ContactPoint","email":"nerya@betar.org.il","contactType":"customer support","availableLanguage":["he","en","fr","es"]}}
+</script>
+<!-- Analytics (Plausible · ידידותי לפרטיות). להפעלה: פִּתחו חשבון, הסירו את ההערה והחליפו data-domain:
+<script defer data-domain="bishvileinu.org.il" src="https://plausible.io/js/script.js"></script>
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">{{aria.skip}}</a>
+<div class="aurora" aria-hidden="true"></div>
+<div class="fx-grain" aria-hidden="true"></div>
+<div class="scroll-progress" role="progressbar" aria-label="{{aria.reading}}"></div>
+
+<!-- @nav -->
+<!-- /@nav -->
+
+<main id="main">
+
+  <!-- ═══ 1 · PAGE HERO ═══ -->
+  <section class="page-hero" aria-labelledby="stories-h1">
+    <p class="label">{{stories.hero_label}}</p>
+    <h1 id="stories-h1" class="h-title kinetic">{{stories.hero_title}}</h1>
+    <p class="h-lead">{{stories.hero_lead}}</p>
+  </section>
+
+  <!-- ═══ 2 · CONCEPT ═══ -->
+  <section class="section" aria-labelledby="concept-h">
+    <div class="section-inner">
+      <div class="head reveal">
+        <p class="label">{{stories.concept_label}}</p>
+        <h2 id="concept-h" class="h-title">{{stories.concept_title}}</h2>
+        <p class="h-lead">{{stories.concept_lead}}</p>
+      </div>
+      <div class="photoband reveal" style="height:clamp(280px,40vw,460px)">
+        <picture><source type="image/avif" srcset="/assets/images/memory-wall.avif"><source type="image/webp" srcset="/assets/images/memory-wall.webp"><img src="/assets/images/memory-wall.png" alt="{{stories.concept_alt}}" width="1600" height="900" loading="lazy" decoding="async"></picture>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 3 · COMING SOON ═══ -->
+  <section class="section section-cream" aria-labelledby="soon-h">
+    <div class="section-inner">
+      <div class="head head-center reveal">
+        <p class="label label-gold">{{stories.soon_label}}</p>
+        <h2 id="soon-h" class="h-title">{{stories.soon_title}}</h2>
+        <p class="h-lead" style="margin-inline:auto">{{stories.soon_lead}}</p>
+      </div>
+      <div class="cta-btns center-x">
+        <a href="{{url.join_families}}" class="btn btn-primary btn-lg">{{stories.soon_btn_families}}</a>
+        <a href="{{url.join_communities}}" class="btn btn-ghost btn-lg">{{stories.soon_btn_communities}}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 4 · CTA ═══ -->
+  <section class="cta-strip" aria-labelledby="stories-cta-h">
+    <div class="cta-strip-inner">
+      <h2 id="stories-cta-h">{{stories.cta_title}}</h2>
+      <p>{{stories.cta_text}}</p>
+      <div class="cta-btns">
+        <a href="{{url.join}}" class="btn btn-gold btn-lg">{{stories.cta_btn_join}}</a>
+        <a href="{{url.donate}}" class="btn btn-ghost-light btn-lg">{{stories.cta_btn_donate}}</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- @footer -->
+<!-- /@footer -->
+
+<button class="to-top" aria-label="{{aria.to_top}}">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<div class="toast" role="alert" aria-live="polite"></div>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="/assets/main.js"></script>
+</body>
+</html>
